@@ -228,7 +228,7 @@ elif st.session_state.page == 'results':
         # 比較ボタン
         compare_ids = st.multiselect(
             "詳細に比較したい教材を選択してください",
-            options=[p['id'] for p in tablet_data if p['id'] in st.session_state.recommendations],
+            options=[p['id'] for p in tablet_data],
             default=st.session_state.recommendations[:2] if len(st.session_state.recommendations) >= 2 else st.session_state.recommendations,
             format_func=lambda x: next((p['name'] for p in tablet_data if p['id'] == x), x)
         )

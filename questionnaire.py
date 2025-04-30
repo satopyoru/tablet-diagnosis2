@@ -21,8 +21,7 @@ def render_questionnaire():
             options=[
                 "幼児（年少・年中・年長）",
                 "小学校低学年（1〜3年生）",
-                "小学校高学年（4〜6年生）",
-                "中学生"
+                "小学校高学年（4〜6年生）"
             ],
             index=None,
             key="grade_radio"
@@ -31,8 +30,7 @@ def render_questionnaire():
         grade_mapping = {
             "幼児（年少・年中・年長）": "kindergarten",
             "小学校低学年（1〜3年生）": "lower_elementary",
-            "小学校高学年（4〜6年生）": "upper_elementary",
-            "中学生": "junior_high"
+            "小学校高学年（4〜6年生）": "upper_elementary"
         }
         
         if grade:
