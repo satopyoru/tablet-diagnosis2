@@ -166,11 +166,18 @@ def render_questionnaire():
     elif st.session_state.question_stage == 5:
         st.header("Q5: 月額予算を教えてください")
         
+        # 予算値を正規化して、stepに合うようにする
+        current_budget = st.session_state.answers.get('budget', 3000)
+        # 500の倍数に調整
+        normalized_budget = (current_budget // 500) * 500
+        if normalized_budget < 980:
+            normalized_budget = 980
+            
         budget = st.slider(
             "1ヶ月あたりの予算（円）:",
             min_value=980,
             max_value=9000,
-            value=st.session_state.answers.get('budget', 3000),
+            value=normalized_budget,
             step=500,
             key="budget_slider"
         )
