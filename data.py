@@ -1,3 +1,22 @@
+# 教材のURL情報
+tablet_urls = {
+    "challenge_touch": "https://jinzaikachi.com/challenge-campaign/",
+    "smile_zemi": "https://jinzaikachi.com/smilezemi-campaign/",
+    "z_kai_tablet": "https://jinzaikachi.com/z-tablet/",
+    "risu_kids": "https://jinzaikachi.com/risu-math/",
+    "study_suppli": "https://jinzaikachi.com/study-supple/",
+    "toshin_online": "https://jinzaikachi.com/toushin-online-syougakubu/",
+    "dekitasu": "https://jinzaikachi.com/dekitasu/",
+    "poppy": "https://jinzaikachi.com/popi-campaign/",
+    "substa": "https://jinzaikachi.com/sabusuta/",
+    "tenjin": "https://jinzaikachi.com/tenjin/",
+    "marugland": "https://jinzaikachi.com/marug-campaign/",
+    "surara": "https://jinzaikachi.com/surara/",
+    "logic_labo": "https://jinzaikachi.com/rogiqlabo/",
+    "wonder_box": "https://jinzaikachi.com/wonderbox/",
+    "groovy_lab": "https://jinzaikachi.com/groovy/"
+}
+
 # タブレット教材データ
 tablet_data = [
     {

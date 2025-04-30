@@ -6,7 +6,7 @@ import plotly.express as px
 from questionnaire import render_questionnaire
 from comparison import render_comparison
 from recommendation import get_recommendations
-from data import tablet_data
+from data import tablet_data, tablet_urls
 
 # アプリの設定
 st.set_page_config(
@@ -199,12 +199,14 @@ elif st.session_state.page == 'results':
                 
             col1, col2 = st.columns([1, 3])
             with col1:
-                st.subheader(f"{i+1}. {product['name']}")
+                product_url = tablet_urls.get(product['id'], "#")
+                st.subheader(f"{i+1}. [{product['name']}]({product_url})")
                 st.write(f"**月額**: {product['monthly_fee']}円")
                 st.write(f"**初期費用**: {product['initial_fee']}円")
                 match_score = product.get('match_score', 0)
                 st.progress(match_score/100)
                 st.write(f"マッチ度: {match_score}%")
+                st.write(f"[詳細情報を見る]({product_url})")
             
             with col2:
                 st.write(f"**特徴**: {product['description']}")
@@ -251,7 +253,8 @@ elif st.session_state.page == 'results':
             for i, rec_id in enumerate(st.session_state.recommendations[:3]):
                 product = next((p for p in tablet_data if p['id'] == rec_id), None)
                 if product:
-                    share_text += f"{i+1}. {product['name']} (月額: {product['monthly_fee']}円)\n"
+                    product_url = tablet_urls.get(product['id'], "")
+                    share_text += f"{i+1}. {product['name']} (月額: {product['monthly_fee']}円) {product_url}\n"
             
             st.text_area("共有テキスト", share_text, height=200)
         

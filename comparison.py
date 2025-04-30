@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from data import tablet_data, feature_ratings
+from data import tablet_data, feature_ratings, tablet_urls
 
 def render_comparison():
     st.title("🔍 タブレット教材比較")
@@ -149,6 +149,10 @@ def render_comparison():
             
             st.write("**概要**")
             st.write(product['description'])
+            
+            # 詳細ページへのリンク
+            product_url = tablet_urls.get(product['id'], "#")
+            st.write(f"[詳細ページを見る]({product_url})")
     
     # カスタム比較
     st.subheader("カスタム比較")
