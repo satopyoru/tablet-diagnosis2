@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect width="200" height="60" rx="10" fill="#f8f9fa" />
+  <g transform="translate(10, 15)">
+    <rect x="0" y="0" width="35" height="35" rx="5" fill="#FF9800" />
+    <text x="45" y="20" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">タブレット</text>
+    <text x="45" y="38" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#FF9800">診断ツール</text>
+    <g transform="translate(10, 8)">
+      <rect x="0" y="0" width="15" height="20" rx="2" fill="white" />
+      <line x1="3" y1="5" x2="12" y2="5" stroke="#333" stroke-width="1" />
+      <line x1="3" y1="10" x2="12" y2="10" stroke="#333" stroke-width="1" />
+      <line x1="3" y1="15" x2="12" y2="15" stroke="#333" stroke-width="1" />
+      <circle cx="7.5" cy="25" r="2" fill="white" />
+    </g>
+  </g>
+</svg>
