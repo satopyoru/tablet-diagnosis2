@@ -35,6 +35,7 @@ if 'recommendations' not in st.session_state:
 
 def reset_session():
     st.session_state.page = 'home'
+    st.session_state.question_stage = 1
     st.session_state.answers = {
         'grade': None,
         'subjects': [],
@@ -51,11 +52,11 @@ with st.sidebar:
     st.title("メニュー")
     
     if st.button("ホーム"):
-        st.session_state.page = 'home'
-        st.rerun()
+        reset_session()
     
     if st.button("診断スタート"):
         st.session_state.page = 'questionnaire'
+        st.session_state.question_stage = 1
         st.rerun()
     
     if st.button("教材比較"):
@@ -97,6 +98,7 @@ if st.session_state.page == 'home':
     with col1:
         if st.button("診断を始める", use_container_width=True, type="primary"):
             st.session_state.page = 'questionnaire'
+            st.session_state.question_stage = 1
             st.rerun()
     with col2:
         if st.button("教材を比較する", use_container_width=True):
@@ -113,6 +115,7 @@ elif st.session_state.page == 'results':
         st.error("診断結果がありません。診断をやり直してください。")
         if st.button("診断に戻る"):
             st.session_state.page = 'questionnaire'
+            st.session_state.question_stage = 1
             st.rerun()
     else:
         st.write("お子様の情報に基づく、おすすめのタブレット教材です")
@@ -264,5 +267,4 @@ elif st.session_state.page == 'comparison':
 else:
     st.error("ページが見つかりません")
     if st.button("ホームに戻る"):
-        st.session_state.page = 'home'
-        st.rerun()
+        reset_session()
