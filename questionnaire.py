@@ -8,9 +8,9 @@ def render_questionnaire():
     if 'question_stage' not in st.session_state:
         st.session_state.question_stage = 1
     
-    progress = st.session_state.question_stage / 4
+    progress = st.session_state.question_stage / 6
     st.progress(progress)
-    st.write(f"ステップ {st.session_state.question_stage}/4")
+    st.write(f"ステップ {st.session_state.question_stage}/6")
     
     # 質問1: 学年
     if st.session_state.question_stage == 1:
@@ -53,6 +53,8 @@ def render_questionnaire():
             "理科": "science",
             "社会": "social",
             "プログラミング": "programming",
+            "思考力・論理的思考": "thinking",
+            "アート・創造性": "art",
             "総合学習（複数科目）": "comprehensive"
         }
         
@@ -80,14 +82,94 @@ def render_questionnaire():
                 st.session_state.question_stage -= 1
                 st.rerun()
     
-    # 質問3: 予算
+    # 質問3: 学習の目的
     elif st.session_state.question_stage == 3:
-        st.header("Q3: 月額予算を教えてください")
+        st.header("Q3: 学習の主な目的は何ですか？")
+        
+        purpose = st.radio(
+            "最も当てはまるものを選んでください:",
+            options=[
+                "学校の授業についていくため",
+                "学習習慣を身につけるため",
+                "中学受験の準備のため",
+                "苦手科目を克服するため",
+                "先取り学習・発展学習のため",
+                "思考力・創造性を伸ばすため"
+            ],
+            index=None,
+            key="purpose_radio"
+        )
+        
+        purpose_mapping = {
+            "学校の授業についていくため": "catch_up",
+            "学習習慣を身につけるため": "habit_formation",
+            "中学受験の準備のため": "exam_preparation",
+            "苦手科目を克服するため": "weakness_improvement",
+            "先取り学習・発展学習のため": "advanced_learning",
+            "思考力・創造性を伸ばすため": "thinking_creativity"
+        }
+        
+        if purpose:
+            st.session_state.answers['purpose'] = purpose_mapping[purpose]
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("戻る"):
+                    st.session_state.question_stage -= 1
+                    st.rerun()
+            with col2:
+                if st.button("次へ", type="primary"):
+                    st.session_state.question_stage += 1
+                    st.rerun()
+    
+    # 質問4: 学習スタイル
+    elif st.session_state.question_stage == 4:
+        st.header("Q4: お子様にぴったりの学習スタイルは？")
+        
+        style = st.radio(
+            "お子様の性格や好みに合うものを選んでください:",
+            options=[
+                "動画授業で学ぶのが好き",
+                "ゲーム感覚で楽しく学びたい",
+                "自分のペースでコツコツ取り組みたい",
+                "実験や体験を通して学びたい",
+                "AIが個別対応してくれる学習がいい",
+                "紙とデジタルの両方を使った学習がいい"
+            ],
+            index=None,
+            key="style_radio"
+        )
+        
+        style_mapping = {
+            "動画授業で学ぶのが好き": "video_learning",
+            "ゲーム感覚で楽しく学びたい": "gamified_learning",
+            "自分のペースでコツコツ取り組みたい": "self_paced",
+            "実験や体験を通して学びたい": "experiential_learning",
+            "AIが個別対応してくれる学習がいい": "ai_adaptive",
+            "紙とデジタルの両方を使った学習がいい": "hybrid_learning"
+        }
+        
+        if style:
+            st.session_state.answers['learning_style'] = style_mapping[style]
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("戻る"):
+                    st.session_state.question_stage -= 1
+                    st.rerun()
+            with col2:
+                if st.button("次へ", type="primary"):
+                    st.session_state.question_stage += 1
+                    st.rerun()
+    
+    # 質問5: 予算
+    elif st.session_state.question_stage == 5:
+        st.header("Q5: 月額予算を教えてください")
         
         budget = st.slider(
             "1ヶ月あたりの予算（円）:",
-            min_value=1000,
-            max_value=6000,
+            min_value=980,
+            max_value=9000,
             value=st.session_state.answers.get('budget', 3000),
             step=500,
             key="budget_slider"
@@ -97,11 +179,13 @@ def render_questionnaire():
         
         # 予算帯のコメント
         if budget < 2000:
-            st.info("この予算では基本的な機能を備えた教材が選べます。特定の科目に絞った教材がおすすめです。")
+            st.info("この予算では、サブスタやまるぐランドなど、基本的な機能を備えたリーズナブルな教材が選べます。")
         elif budget < 3500:
-            st.info("この予算では一般的な総合教材や、特定分野に特化した高品質な教材が選べます。")
+            st.info("この予算では、チャレンジタッチやスマイルゼミなど、一般的な総合教材や特定分野に特化した教材が選べます。")
+        elif budget < 5000:
+            st.info("この予算では、Z会やすららなど、より高度な内容や個別最適化機能を持つ教材が選べます。")
         else:
-            st.info("この予算では最も充実した機能を持つプレミアム教材が選べます。AIによる個別最適化や豊富なコンテンツが期待できます。")
+            st.info("この予算では、東進オンライン学校など、難関受験対策や専門的な指導が受けられる高品質な教材が選べます。")
         
         st.session_state.answers['budget'] = budget
         
@@ -115,24 +199,33 @@ def render_questionnaire():
                 st.session_state.question_stage += 1
                 st.rerun()
     
-    # 質問4: 重視する機能
-    elif st.session_state.question_stage == 4:
-        st.header("Q4: 重視する機能を教えてください")
+    # 質問6: 重視する機能
+    elif st.session_state.question_stage == 6:
+        st.header("Q6: 重視する機能を教えてください")
         
         feature_options = {
-            "学習管理（進捗状況の確認、レポート機能）": "learning_management",
+            "学習管理機能（進捗状況の確認、レポート）": "learning_management",
             "オンラインサポート（質問対応、学習相談）": "online_support",
             "教科の充実度（取り扱う科目の幅広さ）": "subject_variety",
             "問題量（練習問題の豊富さ）": "exercise_quantity",
             "双方向性（インタラクティブな学習体験）": "interactive",
-            "AI学習（個別最適化された学習プラン）": "ai_learning"
+            "AI学習（個別最適化された学習プラン）": "ai_learning",
+            "思考力・論理的思考力の養成": "thinking_skills",
+            "コストパフォーマンスの良さ": "cost_effective",
+            "動画授業の質と量": "video_lessons",
+            "テスト対策の充実度": "test_preparation",
+            "発展的な学習内容": "advanced_learning",
+            "特別支援・学習につまずきのある子向け機能": "special_needs_support",
+            "創造性を育む内容": "creativity",
+            "STEM教育（理数系+技術）": "stem_education",
+            "プロジェクト型学習": "project_based"
         }
         
         selected_features = st.multiselect(
-            "特に重視する機能を選択してください（最大3つ）:",
+            "特に重視する機能を選択してください（最大5つ）:",
             options=list(feature_options.keys()),
             default=[],
-            max_selections=3,
+            max_selections=5,
             key="features_multiselect"
         )
         
@@ -152,7 +245,9 @@ def render_questionnaire():
                         'grade': None,
                         'subjects': [],
                         'budget': 3000,
-                        'features': []
+                        'features': [],
+                        'purpose': None,
+                        'learning_style': None
                     }
                     st.rerun()
             with col3:
@@ -176,6 +271,8 @@ def render_questionnaire():
                 'grade': None,
                 'subjects': [],
                 'budget': 3000,
-                'features': []
+                'features': [],
+                'purpose': None,
+                'learning_style': None
             }
             st.rerun()

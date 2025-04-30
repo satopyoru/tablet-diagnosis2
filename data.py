@@ -1,6 +1,27 @@
 # タブレット教材データ
 tablet_data = [
     {
+        "id": "challenge_touch",
+        "name": "チャレンジタッチ",
+        "monthly_fee": 3250,
+        "initial_fee": 0,
+        "grade_range": ["kindergarten", "lower_elementary", "upper_elementary"],
+        "subjects": ["japanese", "math", "english", "science", "social", "programming"],
+        "features": ["learning_management", "subject_variety", "online_support", "exercise_quantity"],
+        "strengths": [
+            "豊富な動画と音声による解説",
+            "初期費用0円・専用タブレット付き",
+            "紙教材との併用で効果的",
+            "オンラインでの質問・相談サービスあり"
+        ],
+        "weaknesses": [
+            "学力向上効果は平均的",
+            "基礎固めが中心で応用力を伸ばすには不向き",
+            "学習内容は決められたカリキュラム通り"
+        ],
+        "description": "ベネッセの「進研ゼミ」のタブレット版で、基礎力養成を目的とした質の高い学習コンテンツと、専用タブレットが提供されます。紙の教材とのハイブリッド学習が特徴です。"
+    },
+    {
         "id": "smile_zemi",
         "name": "スマイルゼミ",
         "monthly_fee": 3278,
@@ -9,370 +30,328 @@ tablet_data = [
         "subjects": ["japanese", "math", "english", "science", "social", "programming"],
         "features": ["learning_management", "subject_variety", "exercise_quantity", "ai_learning"],
         "strengths": [
-            "全科目に対応しており学習範囲が広い",
-            "AIによる個別最適化学習",
-            "豊富な問題数と動画解説",
-            "保護者向け管理アプリが充実"
+            "全科目対応でバランス良く学べる",
+            "AIが得意・苦手を分析して出題",
+            "丁寧な解説とステップアップ学習",
+            "保護者向け管理アプリで学習管理しやすい"
         ],
         "weaknesses": [
-            "月額費用が比較的高め",
-            "専用タブレットが必要で初期費用がかかる",
-            "自由度が低く応用力がつきにくい"
+            "専用タブレットの初期費用が必要",
+            "学習内容は基礎力養成が中心",
+            "記述問題の学習は紙教材に劣る"
         ],
-        "description": "スマイルゼミは、幼児から中学生まで対応した総合的なタブレット教材です。AIが子どもの理解度に合わせて問題を出題し、効率的な学習をサポートします。"
-    },
-    {
-        "id": "challenge_touch",
-        "name": "チャレンジタッチ",
-        "monthly_fee": 2980,
-        "initial_fee": 0,
-        "grade_range": ["kindergarten", "lower_elementary", "upper_elementary"],
-        "subjects": ["japanese", "math", "english", "science", "social"],
-        "features": ["learning_management", "subject_variety", "online_support"],
-        "strengths": [
-            "進研ゼミのノウハウを活かした質の高い教材",
-            "初期費用が不要でコストパフォーマンスが良い",
-            "オンラインでの質問・相談サービスあり",
-            "紙教材との併用で効果的"
-        ],
-        "weaknesses": [
-            "プログラミング教育が弱い",
-            "中学生向けコースがない",
-            "問題数がやや少なめ"
-        ],
-        "description": "ベネッセの「進研ゼミ」のタブレット版で、質の高い学習コンテンツと、紙の教材とのハイブリッド学習が特徴です。"
-    },
-    {
-        "id": "risu_kids",
-        "name": "RISUきっず",
-        "monthly_fee": 2980,
-        "initial_fee": 0,
-        "grade_range": ["kindergarten", "lower_elementary", "upper_elementary"],
-        "subjects": ["math"],
-        "features": ["ai_learning", "exercise_quantity", "interactive"],
-        "strengths": [
-            "AI技術による個別最適化が高精度",
-            "算数・数学に特化した深い学び",
-            "子どもの「わからない」を見逃さない仕組み",
-            "自分のペースで先取り学習が可能"
-        ],
-        "weaknesses": [
-            "算数・数学のみの対応",
-            "総合的な学習には他の教材も必要",
-            "タブレットを別途用意する必要がある"
-        ],
-        "description": "RISU（リス）きっずは算数・数学に特化したタブレット教材で、AIが子どもの理解度を分析し、一人ひとりに最適な問題を提供します。"
-    },
-    {
-        "id": "qubena",
-        "name": "Qubena（キュビナ）",
-        "monthly_fee": 2178,
-        "initial_fee": 0,
-        "grade_range": ["lower_elementary", "upper_elementary", "junior_high"],
-        "subjects": ["math", "english"],
-        "features": ["ai_learning", "interactive", "exercise_quantity"],
-        "strengths": [
-            "AI技術による徹底した個別最適化",
-            "思考過程までAIが分析し弱点を特定",
-            "学校の授業進度に合わせやすい",
-            "コストパフォーマンスが高い"
-        ],
-        "weaknesses": [
-            "算数・数学と英語のみの対応",
-            "保護者向け機能がやや少なめ",
-            "タブレットを別途用意する必要がある"
-        ],
-        "description": "Qubenaは数学と英語に特化したAI学習教材で、子どもの解答プロセスを分析して、つまずきポイントに合わせた問題を出題します。"
+        "description": "スマイルゼミは、幼児から中学生まで対応した総合的なタブレット教材です。専用タブレットを使い、AIが子どもの理解度に合わせて問題を出題し、効率的な学習をサポートします。"
     },
     {
         "id": "z_kai_tablet",
         "name": "Z会タブレットコース",
-        "monthly_fee": 4400,
-        "initial_fee": 11000,
+        "monthly_fee": 3570,
+        "initial_fee": 0,
         "grade_range": ["lower_elementary", "upper_elementary", "junior_high"],
-        "subjects": ["japanese", "math", "english", "science", "social"],
-        "features": ["subject_variety", "exercise_quantity", "learning_management"],
+        "subjects": ["japanese", "math", "english", "science", "social", "programming", "thinking"],
+        "features": ["subject_variety", "exercise_quantity", "learning_management", "thinking_skills"],
         "strengths": [
-            "難関校受験にも対応した高品質な教材",
             "思考力・記述力を重視したカリキュラム",
-            "丁寧な添削指導と解説",
-            "自ら考える力を育てる教育方針"
+            "難関中学受験対策に効果的",
+            "先取り学習が可能",
+            "質の高い教材で本質的な理解を促進"
         ],
         "weaknesses": [
-            "月額費用が高め",
-            "初期費用がかかる",
-            "基礎固めより発展学習向き",
-            "ボリュームが多く負担に感じる場合も"
+            "教材ボリュームが多くて大変",
+            "難易度が高く挫折リスクがある",
+            "価格が高め"
         ],
-        "description": "Z会タブレットコースは、思考力・表現力を重視した難関校受験にも対応する高品質な学習教材です。"
+        "description": "Z会タブレットコースは、思考力・表現力を重視した難関校受験にも対応する高品質な学習教材です。タブレットでの学習と紙ベースの添削で書く力も鍛えられます。"
     },
     {
-        "id": "gainax_kids",
-        "name": "ガンバレ！ぼくらのプログラミング",
-        "monthly_fee": 1980,
+        "id": "risu_kids",
+        "name": "RISU算数",
+        "monthly_fee": 2980,
         "initial_fee": 0,
-        "grade_range": ["lower_elementary", "upper_elementary"],
-        "subjects": ["programming"],
-        "features": ["interactive", "online_support"],
+        "grade_range": ["kindergarten", "lower_elementary", "upper_elementary", "junior_high"],
+        "subjects": ["math"],
+        "features": ["ai_learning", "exercise_quantity", "interactive"],
         "strengths": [
-            "プログラミング教育に特化",
-            "実際にゲームを作りながら学べる",
-            "オンラインサポートが充実",
-            "月額費用が比較的安め"
+            "AIによる進度調整と個別対応",
+            "つまずき箇所を徹底的に克服",
+            "自分のペースで先取り学習可能",
+            "算数の基礎から応用まで体系的に学習"
         ],
         "weaknesses": [
-            "プログラミングのみの対応",
-            "総合的な学習には他の教材も必要",
-            "タブレットを別途用意する必要がある"
+            "算数のみの対応で他教科は別途必要",
+            "子ども向けキャラクターなど親しみ要素が少ない",
+            "保護者サポートが他より少なめ"
         ],
-        "description": "ガイナックスが提供するプログラミング学習教材で、ゲーム制作を通じてプログラミングの基礎から応用まで楽しく学べます。"
+        "description": "RISU算数は、AIが子どもの理解度を精密に分析し、一人ひとりに最適な問題を提供する算数特化型のタブレット教材です。算数が得意な子も苦手な子も個別のペースで効率的に学習できます。"
     },
     {
-        "id": "kodomo_challenge",
-        "name": "こどもちゃれんじ タブレット版",
-        "monthly_fee": 2480,
-        "initial_fee": 0,
-        "grade_range": ["kindergarten"],
-        "subjects": ["japanese", "math", "english", "comprehensive"],
-        "features": ["interactive", "learning_management"],
-        "strengths": [
-            "幼児教育のパイオニアならではの質の高いコンテンツ",
-            "遊びながら学べる工夫が満載",
-            "しまじろうというキャラクターで親しみやすい",
-            "知育玩具との連携"
-        ],
-        "weaknesses": [
-            "小学生以上には物足りない内容",
-            "学習要素よりも遊びの要素が強い場合も",
-            "タブレットを別途用意する必要がある"
-        ],
-        "description": "こどもちゃれんじのタブレット版は、人気キャラクター「しまじろう」と一緒に、遊びながら幼児期に必要な能力を育てます。"
-    },
-    {
-        "id": "digital_drill",
-        "name": "デジタルドリル",
-        "monthly_fee": 1280,
-        "initial_fee": 0,
-        "grade_range": ["lower_elementary", "upper_elementary", "junior_high"],
-        "subjects": ["japanese", "math", "english", "science", "social"],
-        "features": ["exercise_quantity"],
-        "strengths": [
-            "非常にリーズナブルな月額費用",
-            "基礎的な問題を繰り返し練習できる",
-            "シンプルで使いやすいインターフェース",
-            "学校の教科書に準拠"
-        ],
-        "weaknesses": [
-            "AI機能や個別最適化機能はない",
-            "解説が少なめでサポートが薄い",
-            "応用力を養う問題が少ない",
-            "タブレットを別途用意する必要がある"
-        ],
-        "description": "デジタルドリルは基礎学力の定着を目的とした、シンプルで手頃な価格のタブレット学習教材です。"
-    },
-    {
-        "id": "progress_plus",
-        "name": "進研ゼミ 中学講座",
-        "monthly_fee": 4380,
-        "initial_fee": 0,
-        "grade_range": ["junior_high"],
-        "subjects": ["japanese", "math", "english", "science", "social"],
-        "features": ["learning_management", "subject_variety", "online_support", "exercise_quantity"],
-        "strengths": [
-            "受験対策に強い総合的な学習コンテンツ",
-            "タブレットと紙教材のハイブリッド学習",
-            "専門スタッフによる質問対応サービス",
-            "志望校対策が充実"
-        ],
-        "weaknesses": [
-            "月額費用が高め",
-            "教材量が多く負担に感じる場合がある",
-            "プログラミング教育は含まれていない"
-        ],
-        "description": "進研ゼミ中学講座は、中学生の学習と受験対策を徹底的にサポートする総合教材です。タブレットと紙教材を組み合わせた学習が特徴です。"
-    },
-    {
-        "id": "monoxer",
-        "name": "monoxer（モノグサ）",
+        "id": "study_suppli",
+        "name": "スタディサプリ小学講座",
         "monthly_fee": 2178,
         "initial_fee": 0,
-        "grade_range": ["upper_elementary", "junior_high"],
-        "subjects": ["math", "english"],
-        "features": ["ai_learning", "exercise_quantity"],
+        "grade_range": ["lower_elementary", "upper_elementary", "junior_high"],
+        "subjects": ["japanese", "math", "english", "science", "social"],
+        "features": ["video_lessons", "exercise_quantity", "learning_management", "cost_effective"],
         "strengths": [
-            "AIによる個別最適化学習",
-            "効率的な反復学習システム",
-            "基礎学力の定着に効果的",
+            "リーズナブルな料金設定",
+            "実績のある講師陣による動画授業",
+            "自分のペースで繰り返し視聴可能",
+            "定期テスト対策も充実"
+        ],
+        "weaknesses": [
+            "AIによる個別最適化機能は弱い",
+            "学習管理は保護者主導になりがち",
+            "双方向性の学習体験は限られる"
+        ],
+        "description": "スタディサプリ小学講座は、有名講師による質の高い授業動画と演習問題を低価格で利用できるオンライン学習サービスです。手持ちのタブレットで好きな時に学習できます。"
+    },
+    {
+        "id": "toshin_online",
+        "name": "東進オンライン学校（小学部）",
+        "monthly_fee": 5500,
+        "initial_fee": 0,
+        "grade_range": ["upper_elementary", "junior_high"],
+        "subjects": ["japanese", "math", "english", "science", "social"],
+        "features": ["video_lessons", "exercise_quantity", "test_preparation", "advanced_learning"],
+        "strengths": [
+            "難関中学受験に強い指導カリキュラム",
+            "一流講師陣による授業で難関校合格実績あり",
+            "志望校に合わせた学習プラン",
+            "映像授業と演習のバランスが良い"
+        ],
+        "weaknesses": [
+            "月額費用が高め",
+            "難易度が高く基礎固めには不向き",
+            "小3以下には対応していない"
+        ],
+        "description": "東進オンライン学校は難関中学受験を目指す小学生のための本格的なオンライン学習塾です。一流講師の授業と体系的な演習で、効率的に受験対策ができます。"
+    },
+    {
+        "id": "dekitasu",
+        "name": "デキタス",
+        "monthly_fee": 2178,
+        "initial_fee": 0,
+        "grade_range": ["lower_elementary", "upper_elementary", "junior_high"],
+        "subjects": ["japanese", "math", "english", "science", "social"],
+        "features": ["ai_learning", "exercise_quantity", "learning_management", "interactive"],
+        "strengths": [
+            "AIによる個別学習プラン作成",
+            "子どもが楽しく続けられるゲーム要素",
+            "リーズナブルな料金設定",
+            "基礎から応用まで幅広く対応"
+        ],
+        "weaknesses": [
+            "思考力や記述力を鍛える問題は少なめ",
+            "キャラクター要素が多く集中力が散漫になる場合も",
+            "専用タブレットの操作性に慣れが必要"
+        ],
+        "description": "デキタスは、ゲーム要素を取り入れた楽しい学習体験と、AIによる個別最適化学習を組み合わせたタブレット教材です。子どもが自ら学習する習慣づくりに効果的です。"
+    },
+    {
+        "id": "poppy",
+        "name": "小学ポピー",
+        "monthly_fee": 1400,
+        "initial_fee": 0,
+        "grade_range": ["kindergarten", "lower_elementary", "upper_elementary"],
+        "subjects": ["japanese", "math", "english", "science", "social"],
+        "features": ["exercise_quantity", "cost_effective", "paper_based"],
+        "strengths": [
+            "非常にリーズナブルな料金設定",
+            "学校の教科書に準拠した内容",
+            "テスト対策にも役立つ基礎力養成",
+            "タブレットと紙教材のハイブリッド学習"
+        ],
+        "weaknesses": [
+            "応用力や思考力を鍛える内容は少なめ",
+            "AIによる個別最適化機能はない",
+            "保護者のサポートが必要な場面が多い"
+        ],
+        "description": "小学ポピーは60年以上の実績を持つ通信教育で、基本はプリント学習ですが、タブレット学習も組み合わせることができます。学校の授業に沿った内容で、基礎学力の定着に最適です。"
+    },
+    {
+        "id": "substa",
+        "name": "サブスタ",
+        "monthly_fee": 980,
+        "initial_fee": 0,
+        "grade_range": ["lower_elementary", "upper_elementary", "junior_high"],
+        "subjects": ["japanese", "math", "english", "science", "social"],
+        "features": ["video_lessons", "cost_effective", "test_preparation"],
+        "strengths": [
+            "業界最安クラスの月額料金",
+            "わかりやすい授業動画",
+            "定期テスト対策に効果的",
+            "復習や補習として最適"
+        ],
+        "weaknesses": [
+            "演習問題の量がやや少なめ",
+            "個別最適化機能はない",
+            "自主学習の習慣が必要"
+        ],
+        "description": "サブスタは月額980円から利用できる低価格のオンライン学習サービスです。学校の授業でわからなかった部分を復習したり、定期テスト対策として利用するのに最適です。"
+    },
+    {
+        "id": "tenjin",
+        "name": "天神",
+        "monthly_fee": 2980,
+        "initial_fee": 0,
+        "grade_range": ["lower_elementary", "upper_elementary", "junior_high"],
+        "subjects": ["japanese", "math", "english", "science", "social"],
+        "features": ["ai_learning", "exercise_quantity", "learning_management"],
+        "strengths": [
+            "苦手科目の克服に特化",
+            "学校の授業の遅れを取り戻せる",
+            "基礎から丁寧に学び直せる",
+            "子どものペースに合わせた学習プラン"
+        ],
+        "weaknesses": [
+            "応用力や発展的な内容は少なめ",
+            "受験対策としては物足りない場合も",
+            "AIの精度はトップクラスとまでは言えない"
+        ],
+        "description": "天神は学校の授業についていけない子どもや、苦手科目の克服を目的とした小中学生向けタブレット教材です。基礎からのやり直しで、着実に学力を向上させます。"
+    },
+    {
+        "id": "marugland",
+        "name": "まるぐランド for HOME",
+        "monthly_fee": 1078,
+        "initial_fee": 0,
+        "grade_range": ["lower_elementary", "upper_elementary"],
+        "subjects": ["japanese", "math"],
+        "features": ["ai_learning", "exercise_quantity", "special_needs_support"],
+        "strengths": [
+            "特別支援教育の知見を活かした教材",
+            "学習につまずきがある子にも効果的",
+            "基礎から丁寧に学べる",
             "リーズナブルな料金設定"
         ],
         "weaknesses": [
-            "数学と英語のみの対応",
-            "応用力や思考力を養う問題が少ない",
-            "サポート機能が少なめ"
+            "国語と算数のみの対応",
+            "教科書対応ではなく基礎スキル重視",
+            "高学年向けの発展的内容は少ない"
         ],
-        "description": "monoxerは英語と数学に特化したAI学習教材で、効率的な反復学習により基礎学力の定着を図ります。"
+        "description": "まるぐランド for HOMEは、学校でも導入されている教材の家庭版で、特別支援教育の知見を活かした、つまずきのある子どもにも優しい学習教材です。"
     },
     {
-        "id": "literacy_club",
-        "name": "リテラシークラブ",
+        "id": "surara",
+        "name": "すらら",
+        "monthly_fee": 4378,
+        "initial_fee": 11000,
+        "grade_range": ["kindergarten", "lower_elementary", "upper_elementary", "junior_high"],
+        "subjects": ["japanese", "math", "english", "science", "social"],
+        "features": ["ai_learning", "exercise_quantity", "learning_management", "special_needs_support"],
+        "strengths": [
+            "わかりやすいアニメーション授業",
+            "つまずきに合わせた個別カリキュラム",
+            "特別支援教育の知見を活用",
+            "学習のつまずき診断が詳細"
+        ],
+        "weaknesses": [
+            "月額費用と初期費用が高め",
+            "アニメーション中心で実写講師の授業はない",
+            "受験対策としては物足りない"
+        ],
+        "description": "すららは学校でも多く導入されている、つまずき診断と個別最適化学習が特徴のタブレット教材です。アニメーションによるわかりやすい授業で、基礎力を着実に身につけられます。"
+    },
+    {
+        "id": "logic_labo",
+        "name": "ロジックラボ",
         "monthly_fee": 1980,
         "initial_fee": 0,
-        "grade_range": ["kindergarten", "lower_elementary"],
-        "subjects": ["japanese", "english"],
-        "features": ["interactive", "learning_management"],
-        "strengths": [
-            "楽しみながら読解力を育てる工夫",
-            "子供の興味を引く魅力的なコンテンツ",
-            "読書習慣の形成をサポート",
-            "保護者向けサポートが充実"
-        ],
-        "weaknesses": [
-            "国語と英語のみの対応",
-            "高学年以上には物足りない内容",
-            "タブレットを別途用意する必要がある"
-        ],
-        "description": "リテラシークラブは幼児から小学校低学年向けの国語・英語特化型教材で、読解力と言語能力の基礎を楽しく学べます。"
-    },
-    {
-        "id": "schooltakt",
-        "name": "Schoolタクト",
-        "monthly_fee": 880,
-        "initial_fee": 0,
         "grade_range": ["lower_elementary", "upper_elementary", "junior_high"],
-        "subjects": ["japanese", "math", "english", "science", "social"],
-        "features": ["exercise_quantity", "learning_management"],
+        "subjects": ["math", "programming", "thinking"],
+        "features": ["thinking_skills", "exercise_quantity", "programming_education"],
         "strengths": [
-            "非常にリーズナブルな月額費用",
-            "学校の授業と連動した内容",
-            "シンプルで使いやすいインターフェース",
-            "基礎学力の定着に効果的"
+            "論理的思考力や数理能力を鍛える",
+            "楽しみながら思考力が身につく",
+            "AI、プログラミング的思考の基礎を培う",
+            "リーズナブルな料金設定"
         ],
         "weaknesses": [
-            "機能はシンプルで高度な学習には不向き",
-            "個別最適化機能は限定的",
-            "発展的な内容は少なめ"
+            "教科学習ではなく思考力トレーニング中心",
+            "学校の成績向上に直結しにくい",
+            "保護者のサポートが必要な場合も"
         ],
-        "description": "Schoolタクトは学校の授業と連動した内容を手頃な価格で提供する、基礎学力定着を目的としたタブレット教材です。"
+        "description": "ロジックラボは数理能力と論理的思考力を楽しく鍛える教材です。将来のAI時代に必要な思考力や問題解決能力の基礎を育みます。"
     },
     {
-        "id": "suma_dori",
-        "name": "すまドリ",
-        "monthly_fee": 1078,
+        "id": "wonder_box",
+        "name": "ワンダーボックス",
+        "monthly_fee": 2980,
         "initial_fee": 0,
-        "grade_range": ["lower_elementary", "upper_elementary", "junior_high"],
-        "subjects": ["japanese", "math", "english"],
-        "features": ["exercise_quantity"],
+        "grade_range": ["kindergarten", "lower_elementary", "upper_elementary"],
+        "subjects": ["thinking", "programming", "science", "art"],
+        "features": ["thinking_skills", "creativity", "stem_education", "project_based"],
         "strengths": [
-            "業界最安クラスの月額費用",
-            "基礎的な問題を豊富に収録",
-            "シンプルで使いやすい",
-            "短時間で効率的に学習できる"
+            "創造力と思考力を育む多彩なプロジェクト",
+            "実験キットとタブレット学習の組み合わせ",
+            "STEAM教育で未来の力を養う",
+            "子どもの好奇心を刺激する内容"
         ],
         "weaknesses": [
-            "機能はシンプルで高度な学習には不向き",
-            "サポート機能が少ない",
-            "解説が簡潔で物足りない場合も"
+            "教科学習ではなく総合的な能力開発",
+            "学校の成績向上に直結しにくい",
+            "教材の保管スペースが必要"
         ],
-        "description": "すまドリは非常にリーズナブルな価格で、基礎的な問題を効率的に反復練習できるシンプルなタブレット教材です。"
+        "description": "ワンダーボックスは毎月届く実験キットとタブレット学習を組み合わせた、創造力と思考力を育むSTEAM教育教材です。好奇心を刺激し、考える力を養います。"
     },
     {
-        "id": "thinker",
-        "name": "シンカー",
-        "monthly_fee": 3278,
+        "id": "groovy_lab",
+        "name": "グルービーラボ イン ア ボックス",
+        "monthly_fee": 2980,
         "initial_fee": 0,
         "grade_range": ["lower_elementary", "upper_elementary"],
-        "subjects": ["japanese", "math", "programming"],
-        "features": ["interactive", "ai_learning"],
+        "subjects": ["science", "engineering", "art", "math"],
+        "features": ["thinking_skills", "creativity", "stem_education", "project_based"],
         "strengths": [
-            "思考力・論理的思考力の育成に特化",
-            "プログラミング的思考を育てる",
-            "AIによる個別最適化学習",
-            "創造性を刺激する問題が豊富"
+            "本格的な科学実験が家庭でできる",
+            "タブレットと実物教材の組み合わせ",
+            "実験を通じて科学的思考力を養う",
+            "英語と日本語のバイリンガル対応"
         ],
         "weaknesses": [
-            "一部の科目のみカバー",
-            "基礎学力の定着よりも思考力重視",
-            "月額費用がやや高め"
+            "教科学習ではなく体験型学習が中心",
+            "学校の成績向上に直結しにくい",
+            "実験に保護者のサポートが必要"
         ],
-        "description": "シンカーは思考力・論理的思考力・創造性の育成に特化したタブレット教材で、AIが子どもの思考パターンを分析しながら最適な問題を提供します。"
-    },
-    {
-        "id": "tech_kids",
-        "name": "Tech Kids Online Coaching",
-        "monthly_fee": 8800,
-        "initial_fee": 0,
-        "grade_range": ["lower_elementary", "upper_elementary", "junior_high"],
-        "subjects": ["programming"],
-        "features": ["interactive", "online_support"],
-        "strengths": [
-            "本格的なプログラミング教育",
-            "専門コーチによる1対1のオンライン指導",
-            "実践的なプロジェクト作成",
-            "将来のIT人材育成に最適"
-        ],
-        "weaknesses": [
-            "月額費用が非常に高い",
-            "プログラミングのみの対応",
-            "学習時間の確保が必要"
-        ],
-        "description": "Tech Kids Online Coachingは、専門コーチによる1対1の指導で本格的なプログラミングスキルを身につけられるオンラインコーチングサービスです。"
-    },
-    {
-        "id": "english_central",
-        "name": "English Central",
-        "monthly_fee": 3278,
-        "initial_fee": 0,
-        "grade_range": ["upper_elementary", "junior_high"],
-        "subjects": ["english"],
-        "features": ["interactive", "ai_learning", "online_support"],
-        "strengths": [
-            "英語4技能をバランスよく鍛える",
-            "AIによる発音評価システム",
-            "ネイティブスピーカーとの会話練習",
-            "実践的な英語力が身につく"
-        ],
-        "weaknesses": [
-            "英語のみの対応",
-            "月額費用がやや高め",
-            "基礎からではなく中級者向き"
-        ],
-        "description": "English Centralは、AIによる発音評価やネイティブスピーカーとの会話練習を通じて、実践的な英語力を身につけられるオンライン英語学習サービスです。"
+        "description": "グルービーラボは米国発の科学教材で、毎月テーマの異なる実験キットとタブレット解説で、楽しく科学を学べます。バイリンガル対応で英語学習にも役立ちます。"
     }
 ]
 
 # 機能評価データ（各教材の機能ごとの評価点）
 feature_ratings = {
-    "smile_zemi": {
-        "learning_management": 9,
-        "online_support": 7,
-        "subject_variety": 9,
-        "exercise_quantity": 8,
-        "interactive": 7,
-        "ai_learning": 8
-    },
     "challenge_touch": {
         "learning_management": 8,
         "online_support": 9,
         "subject_variety": 8,
         "exercise_quantity": 7,
         "interactive": 7,
-        "ai_learning": 6
+        "ai_learning": 6,
+        "thinking_skills": 5,
+        "cost_effective": 7,
+        "video_lessons": 8,
+        "test_preparation": 7,
+        "advanced_learning": 5,
+        "special_needs_support": 6,
+        "creativity": 5,
+        "stem_education": 4,
+        "project_based": 3
     },
-    "risu_kids": {
-        "learning_management": 7,
-        "online_support": 6,
-        "subject_variety": 3,
-        "exercise_quantity": 9,
-        "interactive": 8,
-        "ai_learning": 10
-    },
-    "qubena": {
-        "learning_management": 6,
-        "online_support": 5,
-        "subject_variety": 4,
+    "smile_zemi": {
+        "learning_management": 9,
+        "online_support": 7,
+        "subject_variety": 9,
         "exercise_quantity": 8,
-        "interactive": 9,
-        "ai_learning": 10
+        "interactive": 7,
+        "ai_learning": 8,
+        "thinking_skills": 6,
+        "cost_effective": 6,
+        "video_lessons": 7,
+        "test_preparation": 7,
+        "advanced_learning": 6,
+        "special_needs_support": 5,
+        "creativity": 6,
+        "stem_education": 6,
+        "project_based": 4
     },
     "z_kai_tablet": {
         "learning_management": 7,
@@ -380,94 +359,219 @@ feature_ratings = {
         "subject_variety": 9,
         "exercise_quantity": 9,
         "interactive": 6,
-        "ai_learning": 5
+        "ai_learning": 5,
+        "thinking_skills": 10,
+        "cost_effective": 5,
+        "video_lessons": 6,
+        "test_preparation": 9,
+        "advanced_learning": 10,
+        "special_needs_support": 4,
+        "creativity": 8,
+        "stem_education": 7,
+        "project_based": 7
     },
-    "gainax_kids": {
-        "learning_management": 5,
-        "online_support": 8,
-        "subject_variety": 2,
-        "exercise_quantity": 6,
-        "interactive": 10,
-        "ai_learning": 4
-    },
-    "kodomo_challenge": {
-        "learning_management": 6,
-        "online_support": 7,
-        "subject_variety": 6,
-        "exercise_quantity": 5,
-        "interactive": 9,
-        "ai_learning": 3
-    },
-    "digital_drill": {
-        "learning_management": 4,
-        "online_support": 3,
-        "subject_variety": 7,
-        "exercise_quantity": 10,
-        "interactive": 4,
-        "ai_learning": 2
-    },
-    "progress_plus": {
-        "learning_management": 9,
-        "online_support": 10,
-        "subject_variety": 8,
-        "exercise_quantity": 9,
-        "interactive": 7,
-        "ai_learning": 5
-    },
-    "monoxer": {
-        "learning_management": 6,
-        "online_support": 4,
-        "subject_variety": 3,
-        "exercise_quantity": 9,
-        "interactive": 7,
-        "ai_learning": 8
-    },
-    "literacy_club": {
+    "risu_kids": {
         "learning_management": 7,
         "online_support": 6,
         "subject_variety": 3,
-        "exercise_quantity": 6,
-        "interactive": 9,
-        "ai_learning": 4
+        "exercise_quantity": 9,
+        "interactive": 8,
+        "ai_learning": 10,
+        "thinking_skills": 8,
+        "cost_effective": 7,
+        "video_lessons": 6,
+        "test_preparation": 7,
+        "advanced_learning": 8,
+        "special_needs_support": 7,
+        "creativity": 5,
+        "stem_education": 7,
+        "project_based": 3
     },
-    "schooltakt": {
+    "study_suppli": {
         "learning_management": 6,
-        "online_support": 4,
+        "online_support": 6,
         "subject_variety": 7,
         "exercise_quantity": 8,
         "interactive": 5,
-        "ai_learning": 3
+        "ai_learning": 4,
+        "thinking_skills": 6,
+        "cost_effective": 9,
+        "video_lessons": 10,
+        "test_preparation": 8,
+        "advanced_learning": 6,
+        "special_needs_support": 5,
+        "creativity": 4,
+        "stem_education": 4,
+        "project_based": 3
     },
-    "suma_dori": {
-        "learning_management": 3,
-        "online_support": 2,
-        "subject_variety": 4,
+    "toshin_online": {
+        "learning_management": 7,
+        "online_support": 7,
+        "subject_variety": 8,
         "exercise_quantity": 9,
-        "interactive": 3,
-        "ai_learning": 1
+        "interactive": 6,
+        "ai_learning": 5,
+        "thinking_skills": 9,
+        "cost_effective": 4,
+        "video_lessons": 10,
+        "test_preparation": 10,
+        "advanced_learning": 10,
+        "special_needs_support": 3,
+        "creativity": 6,
+        "stem_education": 5,
+        "project_based": 4
     },
-    "thinker": {
+    "dekitasu": {
+        "learning_management": 8,
+        "online_support": 7,
+        "subject_variety": 7,
+        "exercise_quantity": 8,
+        "interactive": 9,
+        "ai_learning": 8,
+        "thinking_skills": 6,
+        "cost_effective": 8,
+        "video_lessons": 7,
+        "test_preparation": 7,
+        "advanced_learning": 6,
+        "special_needs_support": 7,
+        "creativity": 7,
+        "stem_education": 5,
+        "project_based": 5
+    },
+    "poppy": {
+        "learning_management": 5,
+        "online_support": 5,
+        "subject_variety": 7,
+        "exercise_quantity": 7,
+        "interactive": 5,
+        "ai_learning": 3,
+        "thinking_skills": 5,
+        "cost_effective": 10,
+        "video_lessons": 4,
+        "test_preparation": 7,
+        "advanced_learning": 4,
+        "special_needs_support": 6,
+        "creativity": 4,
+        "stem_education": 3,
+        "project_based": 3
+    },
+    "substa": {
+        "learning_management": 4,
+        "online_support": 4,
+        "subject_variety": 7,
+        "exercise_quantity": 6,
+        "interactive": 4,
+        "ai_learning": 2,
+        "thinking_skills": 5,
+        "cost_effective": 10,
+        "video_lessons": 9,
+        "test_preparation": 8,
+        "advanced_learning": 4,
+        "special_needs_support": 5,
+        "creativity": 3,
+        "stem_education": 3,
+        "project_based": 2
+    },
+    "tenjin": {
         "learning_management": 7,
         "online_support": 6,
-        "subject_variety": 4,
-        "exercise_quantity": 7,
-        "interactive": 9,
-        "ai_learning": 8
+        "subject_variety": 7,
+        "exercise_quantity": 8,
+        "interactive": 7,
+        "ai_learning": 8,
+        "thinking_skills": 5,
+        "cost_effective": 7,
+        "video_lessons": 7,
+        "test_preparation": 6,
+        "advanced_learning": 4,
+        "special_needs_support": 8,
+        "creativity": 4,
+        "stem_education": 3,
+        "project_based": 3
     },
-    "tech_kids": {
+    "marugland": {
         "learning_management": 6,
-        "online_support": 10,
-        "subject_variety": 2,
+        "online_support": 5,
+        "subject_variety": 3,
         "exercise_quantity": 7,
-        "interactive": 10,
-        "ai_learning": 6
+        "interactive": 7,
+        "ai_learning": 7,
+        "thinking_skills": 4,
+        "cost_effective": 9,
+        "video_lessons": 5,
+        "test_preparation": 4,
+        "advanced_learning": 3,
+        "special_needs_support": 10,
+        "creativity": 5,
+        "stem_education": 3,
+        "project_based": 3
     },
-    "english_central": {
-        "learning_management": 7,
-        "online_support": 8,
-        "subject_variety": 2,
+    "surara": {
+        "learning_management": 8,
+        "online_support": 7,
+        "subject_variety": 7,
+        "exercise_quantity": 8,
+        "interactive": 8,
+        "ai_learning": 9,
+        "thinking_skills": 6,
+        "cost_effective": 5,
+        "video_lessons": 8,
+        "test_preparation": 7,
+        "advanced_learning": 5,
+        "special_needs_support": 9,
+        "creativity": 5,
+        "stem_education": 4,
+        "project_based": 3
+    },
+    "logic_labo": {
+        "learning_management": 6,
+        "online_support": 5,
+        "subject_variety": 3,
         "exercise_quantity": 7,
-        "interactive": 10,
-        "ai_learning": 9
+        "interactive": 8,
+        "ai_learning": 7,
+        "thinking_skills": 10,
+        "cost_effective": 8,
+        "video_lessons": 6,
+        "test_preparation": 3,
+        "advanced_learning": 7,
+        "special_needs_support": 5,
+        "creativity": 9,
+        "stem_education": 8,
+        "project_based": 6
+    },
+    "wonder_box": {
+        "learning_management": 5,
+        "online_support": 6,
+        "subject_variety": 5,
+        "exercise_quantity": 6,
+        "interactive": 9,
+        "ai_learning": 4,
+        "thinking_skills": 9,
+        "cost_effective": 7,
+        "video_lessons": 7,
+        "test_preparation": 2,
+        "advanced_learning": 6,
+        "special_needs_support": 6,
+        "creativity": 10,
+        "stem_education": 10,
+        "project_based": 10
+    },
+    "groovy_lab": {
+        "learning_management": 5,
+        "online_support": 6,
+        "subject_variety": 4,
+        "exercise_quantity": 5,
+        "interactive": 8,
+        "ai_learning": 3,
+        "thinking_skills": 8,
+        "cost_effective": 7,
+        "video_lessons": 6,
+        "test_preparation": 2,
+        "advanced_learning": 6,
+        "special_needs_support": 5,
+        "creativity": 9,
+        "stem_education": 10,
+        "project_based": 10
     }
 }

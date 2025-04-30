@@ -25,7 +25,9 @@ if 'answers' not in st.session_state:
         'grade': None,
         'subjects': [],
         'budget': 3000,
-        'features': []
+        'features': [],
+        'purpose': None,
+        'learning_style': None
     }
 
 if 'recommendations' not in st.session_state:
@@ -37,7 +39,9 @@ def reset_session():
         'grade': None,
         'subjects': [],
         'budget': 3000,
-        'features': []
+        'features': [],
+        'purpose': None,
+        'learning_style': None
     }
     st.session_state.recommendations = []
     st.rerun()
@@ -134,18 +138,52 @@ elif st.session_state.page == 'results':
                     'science': '理科',
                     'social': '社会',
                     'programming': 'プログラミング',
-                    'comprehensive': '総合学習'
+                    'thinking': '思考力・論理的思考',
+                    'art': 'アート・創造性',
+                    'comprehensive': '総合学習',
+                    'engineering': '工学'
                 }
                 subjects = [subject_mapping.get(s, s) for s in st.session_state.answers['subjects']]
-                st.write(f"**学習目的**: {', '.join(subjects)}")
+                st.write(f"**学習したい科目**: {', '.join(subjects)}")
+                
+                purpose_mapping = {
+                    'catch_up': '学校の授業についていくため',
+                    'habit_formation': '学習習慣を身につけるため',
+                    'exam_preparation': '中学受験の準備のため',
+                    'weakness_improvement': '苦手科目を克服するため',
+                    'advanced_learning': '先取り学習・発展学習のため',
+                    'thinking_creativity': '思考力・創造性を伸ばすため'
+                }
+                if st.session_state.answers.get('purpose'):
+                    st.write(f"**学習の目的**: {purpose_mapping.get(st.session_state.answers['purpose'], '')}")
+                
+                style_mapping = {
+                    'video_learning': '動画授業で学ぶのが好き',
+                    'gamified_learning': 'ゲーム感覚で楽しく学びたい',
+                    'self_paced': '自分のペースでコツコツ取り組みたい',
+                    'experiential_learning': '実験や体験を通して学びたい',
+                    'ai_adaptive': 'AIが個別対応してくれる学習がいい',
+                    'hybrid_learning': '紙とデジタルの両方を使った学習がいい'
+                }
+                if st.session_state.answers.get('learning_style'):
+                    st.write(f"**学習スタイル**: {style_mapping.get(st.session_state.answers['learning_style'], '')}")
                 
                 feature_mapping = {
-                    'learning_management': '学習管理',
+                    'learning_management': '学習管理機能',
                     'online_support': 'オンラインサポート',
                     'subject_variety': '教科の充実度',
                     'exercise_quantity': '問題量',
                     'interactive': '双方向性',
-                    'ai_learning': 'AI学習'
+                    'ai_learning': 'AI学習',
+                    'thinking_skills': '思考力・論理的思考力養成',
+                    'cost_effective': 'コストパフォーマンスの良さ',
+                    'video_lessons': '動画授業の質と量',
+                    'test_preparation': 'テスト対策の充実度',
+                    'advanced_learning': '発展的な学習内容',
+                    'special_needs_support': '特別支援・学習サポート',
+                    'creativity': '創造性を育む内容',
+                    'stem_education': 'STEM教育',
+                    'project_based': 'プロジェクト型学習'
                 }
                 features = [feature_mapping.get(f, f) for f in st.session_state.answers['features']]
                 st.write(f"**重視する機能**: {', '.join(features)}")
