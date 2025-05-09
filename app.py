@@ -13,7 +13,7 @@ st.set_page_config(
     page_title="子供のタブレット教材診断ツール",
     page_icon="📱",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
 # セッションステートの初期化
