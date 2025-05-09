@@ -6,7 +6,7 @@ import plotly.express as px
 from questionnaire import render_questionnaire
 from comparison import render_comparison
 from recommendation import get_recommendations
-from data import tablet_data, tablet_urls
+from data import tablet_data, tablet_urls, product_performance, performance_indicators
 
 # アプリの設定
 st.set_page_config(
@@ -210,6 +210,30 @@ elif st.session_state.page == 'results':
             
             with col2:
                 st.write(f"**特徴**: {product['description']}")
+                
+                # パフォーマンス指標の表示
+                st.write("**パフォーマンス指標**:")
+                perf_cols = st.columns(3)
+                product_id = product['id']
+                perf_ratings = product_performance.get(product_id, {})
+                
+                for idx, (perf_key, perf_info) in enumerate(performance_indicators.items()):
+                    col_idx = idx % 3
+                    rating = perf_ratings.get(perf_key, 0)
+                    
+                    # 評価によって色分け
+                    if rating >= 8:
+                        color = "🟢"  # 良い - 緑
+                        text_color = "green"
+                    elif rating >= 6:
+                        color = "🟡"  # 普通 - 黄色
+                        text_color = "orange"
+                    else:
+                        color = "🔴"  # 改善の余地あり - 赤
+                        text_color = "red"
+                    
+                    with perf_cols[col_idx]:
+                        st.markdown(f"**{perf_info['name']}**: <span style='color:{text_color}'>{color} {rating}/10</span>", unsafe_allow_html=True)
                 
                 # 強みと弱みを表示
                 col_a, col_b = st.columns(2)

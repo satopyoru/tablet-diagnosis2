@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from data import tablet_data, feature_ratings, tablet_urls
+from data import tablet_data, feature_ratings, tablet_urls, product_performance, performance_indicators
 
 def render_comparison():
     st.title("🔍 タブレット教材比較")
@@ -154,12 +154,108 @@ def render_comparison():
             product_url = tablet_urls.get(product['id'], "#")
             st.write(f"[詳細ページを見る]({product_url})")
     
+    # パフォーマンス指標比較
+    st.subheader("📊 パフォーマンス指標比較")
+    
+    # パフォーマンス指標の表示
+    st.write("各タブレット教材の主要パフォーマンス指標（10点満点）")
+    
+    # パフォーマンス指標データの準備
+    performance_data = []
+    for product in selected_products:
+        product_id = product['id']
+        perf_ratings = product_performance.get(product_id, {})
+        
+        for perf_key, perf_info in performance_indicators.items():
+            rating = perf_ratings.get(perf_key, 0)
+            
+            # 評価によって色分け
+            if rating >= 8:
+                color = "🟢"  # 良い - 緑
+            elif rating >= 6:
+                color = "🟡"  # 普通 - 黄色
+            else:
+                color = "🔴"  # 改善の余地あり - 赤
+                
+            performance_data.append({
+                "教材名": product['name'],
+                "指標": perf_info['name'],
+                "説明": perf_info['description'],
+                "評価": rating,
+                "評価（視覚化）": f"{color} {rating}/10"
+            })
+    
+    # データフレームを作成
+    df_performance = pd.DataFrame(performance_data)
+    
+    # 教材ごとにタブを作成
+    perf_tabs = st.tabs([p['name'] for p in selected_products])
+    
+    for i, tab in enumerate(perf_tabs):
+        with tab:
+            product_name = selected_products[i]['name']
+            product_df = df_performance[df_performance["教材名"] == product_name]
+            
+            # 評価（視覚化）列だけを表示
+            display_df = product_df[["指標", "説明", "評価（視覚化）"]]
+            st.table(display_df)
+            
+            # レーダーチャートも表示
+            radar_data = product_df[["指標", "評価"]].copy()
+            fig = px.line_polar(
+                radar_data, 
+                r="評価", 
+                theta="指標", 
+                line_close=True,
+                range_r=[0,10],
+                title=f"{product_name}のパフォーマンス指標"
+            )
+            st.plotly_chart(fig)
+    
+    # 指標ごとに比較するバーチャート
+    st.write("### 指標別比較")
+    for perf_key, perf_info in performance_indicators.items():
+        perf_data = []
+        for product in selected_products:
+            product_id = product['id']
+            rating = product_performance.get(product_id, {}).get(perf_key, 0)
+            perf_data.append({
+                "教材名": product['name'],
+                "評価": rating
+            })
+        
+        df_perf_compare = pd.DataFrame(perf_data)
+        
+        # バーの色を評価に基づいて設定
+        colors = []
+        for rating in df_perf_compare["評価"]:
+            if rating >= 8:
+                colors.append("green")
+            elif rating >= 6:
+                colors.append("gold")
+            else:
+                colors.append("red")
+        
+        fig = px.bar(
+            df_perf_compare,
+            x="教材名",
+            y="評価",
+            title=f"{perf_info['name']}（{perf_info['description']}）の比較",
+            height=300,
+            color="評価",
+            color_continuous_scale=["red", "gold", "green"],
+            range_color=[0, 10]
+        )
+        fig.update_layout(yaxis_range=[0, 10])
+        st.plotly_chart(fig, use_container_width=True)
+    
     # カスタム比較
     st.subheader("カスタム比較")
     
     # 比較項目の選択
     custom_options = ["月額費用", "初期費用", "1年間の総費用", "対象学年の幅広さ", "対応科目数"]
     custom_options.extend([f"機能: {f}" for f in feature_names.values()])
+    custom_options.extend([f"指標: {p['name']}" for p in performance_indicators.values()])
     
     selected_metrics = st.multiselect(
         "比較したい項目を選択してください",
@@ -189,6 +285,11 @@ def render_comparison():
                     feature_key = next((k for k, v in feature_names.items() if v == feature_name), None)
                     if feature_key:
                         product_data[metric] = feature_ratings.get(product['id'], {}).get(feature_key, 0)
+                elif metric.startswith("指標:"):
+                    indicator_name = metric.replace("指標: ", "")
+                    indicator_key = next((k for k, v in performance_indicators.items() if v['name'] == indicator_name), None)
+                    if indicator_key:
+                        product_data[metric] = product_performance.get(product['id'], {}).get(indicator_key, 0)
             
             custom_data.append(product_data)
         

@@ -336,6 +336,140 @@ tablet_data = [
     }
 ]
 
+# パフォーマンス指標の定義
+performance_indicators = {
+    "cost_performance": {"name": "コスパ", "description": "料金設定とサービス内容のバランス"},
+    "learning_effect": {"name": "学習効果", "description": "基礎的な学力向上効果"},
+    "curriculum": {"name": "カリキュラム", "description": "学習内容の充実度と順序立て"},
+    "usability": {"name": "使いやすさ", "description": "操作性と直感的な理解のしやすさ"},
+    "support": {"name": "サポート", "description": "保護者向け機能や学習サポート"},
+    "motivation": {"name": "継続性", "description": "楽しく続けられる工夫"}
+}
+
+# 各教材のパフォーマンス指標評価（10点満点）
+product_performance = {
+    "challenge_touch": {
+        "cost_performance": 7,
+        "learning_effect": 8,
+        "curriculum": 9,
+        "usability": 8,
+        "support": 9,
+        "motivation": 7
+    },
+    "smile_zemi": {
+        "cost_performance": 6,
+        "learning_effect": 8,
+        "curriculum": 9,
+        "usability": 9,
+        "support": 8,
+        "motivation": 8
+    },
+    "z_kai_tablet": {
+        "cost_performance": 5,
+        "learning_effect": 9,
+        "curriculum": 10,
+        "usability": 7,
+        "support": 7,
+        "motivation": 6
+    },
+    "risu_kids": {
+        "cost_performance": 7,
+        "learning_effect": 9,
+        "curriculum": 8,
+        "usability": 8,
+        "support": 6,
+        "motivation": 7
+    },
+    "study_suppli": {
+        "cost_performance": 9,
+        "learning_effect": 7,
+        "curriculum": 8,
+        "usability": 8,
+        "support": 6,
+        "motivation": 7
+    },
+    "toshin_online": {
+        "cost_performance": 4,
+        "learning_effect": 9,
+        "curriculum": 9,
+        "usability": 7,
+        "support": 7,
+        "motivation": 5
+    },
+    "dekitasu": {
+        "cost_performance": 8,
+        "learning_effect": 7,
+        "curriculum": 7,
+        "usability": 9,
+        "support": 7,
+        "motivation": 9
+    },
+    "poppy": {
+        "cost_performance": 10,
+        "learning_effect": 6,
+        "curriculum": 7,
+        "usability": 8,
+        "support": 6,
+        "motivation": 6
+    },
+    "substa": {
+        "cost_performance": 10,
+        "learning_effect": 6,
+        "curriculum": 7,
+        "usability": 7,
+        "support": 5,
+        "motivation": 5
+    },
+    "tenjin": {
+        "cost_performance": 7,
+        "learning_effect": 7,
+        "curriculum": 7,
+        "usability": 8,
+        "support": 7,
+        "motivation": 6
+    },
+    "marugland": {
+        "cost_performance": 9,
+        "learning_effect": 7,
+        "curriculum": 6,
+        "usability": 8,
+        "support": 9,
+        "motivation": 7
+    },
+    "surara": {
+        "cost_performance": 5,
+        "learning_effect": 8,
+        "curriculum": 8,
+        "usability": 9,
+        "support": 9,
+        "motivation": 8
+    },
+    "logic_labo": {
+        "cost_performance": 8,
+        "learning_effect": 6,
+        "curriculum": 7,
+        "usability": 8,
+        "support": 6,
+        "motivation": 9
+    },
+    "wonder_box": {
+        "cost_performance": 6,
+        "learning_effect": 5,
+        "curriculum": 8,
+        "usability": 7,
+        "support": 6,
+        "motivation": 10
+    },
+    "groovy_lab": {
+        "cost_performance": 6,
+        "learning_effect": 6,
+        "curriculum": 7,
+        "usability": 7,
+        "support": 5,
+        "motivation": 10
+    }
+}
+
 # 機能評価データ（各教材の機能ごとの評価点）
 feature_ratings = {
     "challenge_touch": {
