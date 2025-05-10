@@ -1,9 +1,1 @@
-[project]
-name = "tablet-diagnosis2"
-version = "0.1.0"
-dependencies = [
-    "streamlit",
-    "pandas",
-    "numpy"
-]
 
