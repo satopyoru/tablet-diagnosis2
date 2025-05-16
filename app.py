@@ -1,3 +1,7 @@
+if "page" not in st.session_state:
+    st.session_state["page"] = "home"
+if "question_stage" not in st.session_state:
+    st.session_state["question_stage"] = 1
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 import pandas as pd
