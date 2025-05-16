@@ -1,0 +1,236 @@
+[     UTC     ] Logs for tablet-diagnosis2-bu4scbyxwctachdrdzrqqn.streamlit.app/
+
+────────────────────────────────────────────────────────────────────────────────────────
+
+[02:52:03] 🚀 Starting up repository: 'tablet-diagnosis2', branch: 'main', main module: 'app.py'
+
+[02:52:03] 🐙 Cloning repository...
+
+[02:52:04] 🐙 Cloning into '/mount/src/tablet-diagnosis2'...
+
+[02:52:04] 🐙 Cloned repository!
+
+[02:52:04] 🐙 Pulling code changes from Github...
+
+[02:52:04] 📦 Processing dependencies...
+
+
+──────────────────────────────────────── uv ───────────────────────────────────────────
+
+
+Using uv pip install.
+
+Using Python 3.12.10 environment at /home/adminuser/venv
+
+Resolved 83 packages in 1.95s
+
+Prepared [2025-05-16 02:52:16.126253] 83 packages[2025-05-16 02:52:16.126551]  [2025-05-16 02:52:16.126839] in 8.98s[2025-05-16 02:52:16.127080] 
+
+Installed 83 packages in 1.09s
+
+ + altair==5.5.0
+
+ + attrs==25.3.0
+
+ + babel==2.17.0
+
+ + beautifulsoup4==4.13.4
+
+ + blinker==1.9.0
+
+ + cachetools==5.5.2
+
+ + certifi==2025.4.26
+
+ + charset-normalizer==3.4.2
+
+ + click==8.2.0[2025-05-16 02:52:17.222726] 
+
+ + contourpy==1.3.2
+
+ + courlan==1.3.2
+
+ + cycler==0.12.1
+
+ + dateparser==1.2.1
+
+ + entrypoints==0.4
+
+ + faker==37.3.0
+
+ + favicon==0.7.0
+
+ + fonttools==4.58.0
+
+ + gitdb==4.0.12
+
+ + gitpython==3.1.44[2025-05-16 02:52:17.223018] 
+
+ + htbuilder==0.9.0
+
+ + htmldate==1.9.3
+
+ + idna==3.10
+
+ + jinja2==3.1.6
+
+ + joblib==1.5.0
+
+ + jsonschema==4.23.0
+
+ + jsonschema-specifications==2025.4.1
+
+ + justext==3.0.2
+
+ + kiwisolver==1.4.8
+
+ + lxml==5.4.0
+
+ [2025-05-16 02:52:17.223335] + lxml-html-clean==0.4.2
+
+ + markdown==3.8
+
+ + markdownlit==0.0.7
+
+ + markupsafe==3.0.2
+
+ + matplotlib==3.10.3
+
+ + narwhals==1.39.1
+
+ + numpy==2.2.5
+
+ + packaging==24.2
+
+ + pandas[2025-05-16 02:52:17.223528] ==2.2.3
+
+ + pillow==11.2.1
+
+ + plotly==6.0.1
+
+ + prometheus-client==0.21.1
+
+ + protobuf==6.31.0
+
+ + pyarrow==20.0.0[2025-05-16 02:52:17.223774] 
+
+ + pydeck==0.9.1
+
+ + pymdown-extensions==10.15
+
+ + pyparsing==3.2.3
+
+ + python-dateutil[2025-05-16 02:52:17.224002] ==2.9.0.post0
+
+ + pytz==2025.2
+
+ + pyyaml==6.0.2
+
+ + referencing==0.36.2
+
+ + regex==2024.11.6
+
+ + requests[2025-05-16 02:52:17.224226] ==2.32.3
+
+ + rpds-py==0.25.0
+
+ + scikit-learn==1.6.1
+
+ + scipy==1.15.3
+
+ + six==[2025-05-16 02:52:17.224367] 1.17.0
+
+ + smmap==5.0.2
+
+ + soupsieve==[2025-05-16 02:52:17.224508] 2.7
+
+ + st-annotated-text==4.0.2
+
+ + st-theme==1.2.3
+
+ + streamlit[2025-05-16 02:52:17.224673] ==1.45.0
+
+ + streamlit-avatar==0.1.3
+
+ + streamlit-camera-input-live==0.2.0
+
+ + streamlit-card==1.0.2
+
+ + streamlit-embedcode==0.1.2
+
+ + streamlit-extras==0.6.0
+
+ + streamlit-faker==0.0.3
+
+ + streamlit-image-coordinates==0.1.9
+
+ + streamlit-keyup==0.3.0
+
+ +[2025-05-16 02:52:17.224931]  streamlit-toggle-switch==1.0.2
+
+ + streamlit-vertical-slider==2.5.5
+
+ + tenacity==9.1.2
+
+ + threadpoolctl==3.6.0
+
+ + tld[2025-05-16 02:52:17.225035] ==0.13
+
+ + toml==0.10.2
+
+ + tornado==6.5
+
+ + trafilatura==2.0.0
+
+ + typing-extensions==4.13.2
+
+ [2025-05-16 02:52:17.225133] + tzdata==2025.2
+
+ + tzlocal==5.3.1
+
+ + urllib3==2.4.0
+
+ + validators==0.35.0
+
+ + [2025-05-16 02:52:17.225645] watchdog==6.0.0
+
+Checking if Streamlit is installed
+
+Found Streamlit version 1.45.0 in the environment
+
+Installing rich for an improved exception logging
+
+Using uv pip install.
+
+Using Python 3.12.10 environment at /home/adminuser/venv
+
+Resolved [2025-05-16 02:52:20.308152] 4 packages[2025-05-16 02:52:20.308402]  [2025-05-16 02:52:20.308655] in 166ms[2025-05-16 02:52:20.309019] 
+
+Prepared 4 packages in 123ms
+
+Installed [2025-05-16 02:52:20.467191] 4 packages[2025-05-16 02:52:20.467521]  [2025-05-16 02:52:20.467746] in 31ms[2025-05-16 02:52:20.468090] 
+
+ + markdown-it-py==3.0.0
+
+ + mdurl==0.1.2
+
+ + pygments==2.19.1
+
+ + rich==14.0.0
+
+
+────────────────────────────────────────────────────────────────────────────────────────
+
+
+[02:52:21] 🐍 Python dependencies were installed from /mount/src/tablet-diagnosis2/requirements.txt using uv.
+
+Check if streamlit is installed
+
+Streamlit is already installed
+
+[02:52:23] 📦 Processed dependencies!
+
+
+
+
+[02:52:27] ❗️ The service has encountered an error while checking the health of the Streamlit app: Get "http://localhost:8501/healthz": dial tcp 127.0.0.1:8501: connect: connection refused
