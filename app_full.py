@@ -295,4 +295,4 @@ else:
     st.error("ページが見つかりません")
     if st.button("ホームに戻る"):
         reset_session()
-if __name__ == "__main__":
+
