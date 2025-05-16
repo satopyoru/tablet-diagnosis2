@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_extras.switch_page_button import switch_page
 import pandas as pd
 import plotly.express as px
 
@@ -36,7 +35,23 @@ if 'answers' not in st.session_state:
 if 'recommendations' not in st.session_state:
     st.session_state.recommendations = []
 
-# ユーティリティ関数
+# ナビゲーション関数
+def go_to_home():
+    st.session_state.page = 'home'
+    
+def go_to_questionnaire():
+    st.session_state.page = 'questionnaire'
+    st.session_state.question_stage = 1
+    
+def go_to_comparison():
+    st.session_state.page = 'comparison'
+    
+def go_to_results():
+    if not st.session_state.recommendations:
+        st.error("まずは診断を完了させてください")
+    else:
+        st.session_state.page = 'results'
+
 def reset_session():
     st.session_state.page = 'home'
     st.session_state.question_stage = 1
@@ -54,22 +69,17 @@ def reset_session():
 with st.sidebar:
     st.title("メニュー")
     
-    # 各ボタンにユニークなキーを割り当てる
     if st.button("ホーム", key="sidebar_home"):
-        reset_session()
+        go_to_home()
     
     if st.button("診断スタート", key="sidebar_start"):
-        st.session_state.page = 'questionnaire'
-        st.session_state.question_stage = 1
+        go_to_questionnaire()
     
     if st.button("教材比較", key="sidebar_compare"):
-        st.session_state.page = 'comparison'
+        go_to_comparison()
     
     if st.button("診断結果", key="sidebar_results"):
-        if not st.session_state.recommendations:
-            st.error("まずは診断を完了させてください")
-        else:
-            st.session_state.page = 'results'
+        go_to_results()
     
     st.divider()
     if st.button("リセット", key="sidebar_reset"):
@@ -98,11 +108,10 @@ if st.session_state.page == 'home':
     col1, col2 = st.columns(2)
     with col1:
         if st.button("診断を始める", use_container_width=True, type="primary", key="home_start"):
-            st.session_state.page = 'questionnaire'
-            st.session_state.question_stage = 1
+            go_to_questionnaire()
     with col2:
         if st.button("教材を比較する", use_container_width=True, key="home_compare"):
-            st.session_state.page = 'comparison'
+            go_to_comparison()
 
 elif st.session_state.page == 'questionnaire':
     render_questionnaire()
@@ -113,8 +122,7 @@ elif st.session_state.page == 'results':
     if not st.session_state.recommendations:
         st.error("診断結果がありません。診断をやり直してください。")
         if st.button("診断に戻る", key="results_back_to_quiz"):
-            st.session_state.page = 'questionnaire'
-            st.session_state.question_stage = 1
+            go_to_questionnaire()
     else:
         st.write("お子様の情報に基づく、おすすめのタブレット教材です")
         
@@ -258,7 +266,7 @@ elif st.session_state.page == 'results':
         
         if st.button("選択した教材を比較する", key="results_compare_button"):
             st.session_state['compare_ids'] = compare_ids
-            st.session_state.page = 'comparison'
+            go_to_comparison()
         
         # 共有機能
         with st.expander("結果を共有"):
@@ -283,8 +291,7 @@ elif st.session_state.page == 'results':
         # 診断のやり直し
         if st.button("診断をやり直す", key="results_restart"):
             reset_session()
-            st.session_state.page = 'questionnaire'
-            st.session_state.question_stage = 1
+            go_to_questionnaire()
 
 elif st.session_state.page == 'comparison':
     render_comparison()
@@ -292,4 +299,4 @@ elif st.session_state.page == 'comparison':
 else:
     st.error("ページが見つかりません")
     if st.button("ホームに戻る", key="error_home"):
-        reset_session()
+        go_to_home()

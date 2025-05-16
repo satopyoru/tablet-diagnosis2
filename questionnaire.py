@@ -9,9 +9,6 @@ def render_questionnaire():
     st.progress(progress)
     st.write(f"ステップ {st.session_state.question_stage}/6")
     
-    # ボタンにユニークなキーを追加するためのプレフィックス
-    key_prefix = f"q{st.session_state.question_stage}_"
-    
     # 質問1: 学年
     if st.session_state.question_stage == 1:
         st.header("Q1: お子様の学年を教えてください")
@@ -24,7 +21,7 @@ def render_questionnaire():
                 "小学校高学年（4〜6年生）"
             ],
             index=None,
-            key="grade_radio"
+            key="grade_radio_q1"
         )
         
         grade_mapping = {
@@ -36,17 +33,18 @@ def render_questionnaire():
         if grade:
             st.session_state.answers['grade'] = grade_mapping[grade]
             
-            if st.button("次へ", type="primary"):
-                st.session_state.question_stage += 1
-                st.rerun()
+            col1, col2 = st.columns(2)
+            with col2:
+                if st.button("次へ", type="primary", key="next_q1"):
+                    st.session_state.question_stage = 2
     
-    # 質問2: 学習目的
+    # 質問2: 科目
     elif st.session_state.question_stage == 2:
-        st.header("Q2: どのような科目を学ばせたいですか？")
+        st.header("Q2: 学習したい科目を選択してください")
         
         subject_options = {
             "国語": "japanese",
-            "算数・数学": "math",
+            "算数/数学": "math",
             "英語": "english",
             "理科": "science",
             "社会": "social",
@@ -60,7 +58,7 @@ def render_questionnaire():
             "興味のある科目を選択してください（複数選択可）:",
             options=list(subject_options.keys()),
             default=[],
-            key="subjects_multiselect"
+            key="subjects_multiselect_q2"
         )
         
         if selected_subjects:
@@ -68,17 +66,14 @@ def render_questionnaire():
             
             col1, col2 = st.columns(2)
             with col1:
-                if st.button("戻る"):
-                    st.session_state.question_stage -= 1
-                    st.rerun()
+                if st.button("戻る", key="back_q2"):
+                    st.session_state.question_stage = 1
             with col2:
-                if st.button("次へ", type="primary"):
-                    st.session_state.question_stage += 1
-                    st.rerun()
+                if st.button("次へ", type="primary", key="next_q2"):
+                    st.session_state.question_stage = 3
         else:
-            if st.button("戻る"):
-                st.session_state.question_stage -= 1
-                st.rerun()
+            if st.button("戻る", key="back_q2_nosub"):
+                st.session_state.question_stage = 1
     
     # 質問3: 学習の目的
     elif st.session_state.question_stage == 3:
@@ -95,7 +90,7 @@ def render_questionnaire():
                 "思考力・創造性を伸ばすため"
             ],
             index=None,
-            key="purpose_radio"
+            key="purpose_radio_q3"
         )
         
         purpose_mapping = {
@@ -112,20 +107,21 @@ def render_questionnaire():
             
             col1, col2 = st.columns(2)
             with col1:
-                if st.button("戻る"):
-                    st.session_state.question_stage -= 1
-                    st.rerun()
+                if st.button("戻る", key="back_q3"):
+                    st.session_state.question_stage = 2
             with col2:
-                if st.button("次へ", type="primary"):
-                    st.session_state.question_stage += 1
-                    st.rerun()
+                if st.button("次へ", type="primary", key="next_q3"):
+                    st.session_state.question_stage = 4
+        else:
+            if st.button("戻る", key="back_q3_nopurpose"):
+                st.session_state.question_stage = 2
     
     # 質問4: 学習スタイル
     elif st.session_state.question_stage == 4:
-        st.header("Q4: お子様にぴったりの学習スタイルは？")
+        st.header("Q4: お子様の好みの学習スタイルは？")
         
         style = st.radio(
-            "お子様の性格や好みに合うものを選んでください:",
+            "最も当てはまるものを選んでください:",
             options=[
                 "動画授業で学ぶのが好き",
                 "ゲーム感覚で楽しく学びたい",
@@ -135,7 +131,7 @@ def render_questionnaire():
                 "紙とデジタルの両方を使った学習がいい"
             ],
             index=None,
-            key="style_radio"
+            key="style_radio_q4"
         )
         
         style_mapping = {
@@ -152,13 +148,14 @@ def render_questionnaire():
             
             col1, col2 = st.columns(2)
             with col1:
-                if st.button("戻る"):
-                    st.session_state.question_stage -= 1
-                    st.rerun()
+                if st.button("戻る", key="back_q4"):
+                    st.session_state.question_stage = 3
             with col2:
-                if st.button("次へ", type="primary"):
-                    st.session_state.question_stage += 1
-                    st.rerun()
+                if st.button("次へ", type="primary", key="next_q4"):
+                    st.session_state.question_stage = 5
+        else:
+            if st.button("戻る", key="back_q4_nostyle"):
+                st.session_state.question_stage = 3
     
     # 質問5: 予算
     elif st.session_state.question_stage == 5:
@@ -177,107 +174,59 @@ def render_questionnaire():
             max_value=9000,
             value=normalized_budget,
             step=500,
-            key="budget_slider"
+            key="budget_slider_q5"
         )
-        
-        st.write(f"選択した予算: {budget}円/月")
-        
-        # 予算帯のコメント
-        if budget < 2000:
-            st.info("この予算では、サブスタやまるぐランドなど、基本的な機能を備えたリーズナブルな教材が選べます。")
-        elif budget < 3500:
-            st.info("この予算では、チャレンジタッチやスマイルゼミなど、一般的な総合教材や特定分野に特化した教材が選べます。")
-        elif budget < 5000:
-            st.info("この予算では、Z会やすららなど、より高度な内容や個別最適化機能を持つ教材が選べます。")
-        else:
-            st.info("この予算では、東進オンライン学校など、難関受験対策や専門的な指導が受けられる高品質な教材が選べます。")
         
         st.session_state.answers['budget'] = budget
         
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("戻る"):
-                st.session_state.question_stage -= 1
-                st.rerun()
+            if st.button("戻る", key="back_q5"):
+                st.session_state.question_stage = 4
         with col2:
-            if st.button("次へ", type="primary"):
-                st.session_state.question_stage += 1
-                st.rerun()
+            if st.button("次へ", type="primary", key="next_q5"):
+                st.session_state.question_stage = 6
     
     # 質問6: 重視する機能
     elif st.session_state.question_stage == 6:
-        st.header("Q6: 重視する機能を教えてください")
+        st.header("Q6: 特に重視する機能はありますか？")
         
         feature_options = {
-            "学習管理機能（進捗状況の確認、レポート）": "learning_management",
-            "オンラインサポート（質問対応、学習相談）": "online_support",
-            "教科の充実度（取り扱う科目の幅広さ）": "subject_variety",
-            "問題量（練習問題の豊富さ）": "exercise_quantity",
-            "双方向性（インタラクティブな学習体験）": "interactive",
-            "AI学習（個別最適化された学習プラン）": "ai_learning",
-            "思考力・論理的思考力の養成": "thinking_skills",
+            "学習管理機能": "learning_management",
+            "オンラインサポート": "online_support",
+            "教科の充実度": "subject_variety",
+            "問題量": "exercise_quantity",
+            "双方向性": "interactive",
+            "AI学習": "ai_learning",
+            "思考力・論理的思考力養成": "thinking_skills",
             "コストパフォーマンスの良さ": "cost_effective",
             "動画授業の質と量": "video_lessons",
             "テスト対策の充実度": "test_preparation",
             "発展的な学習内容": "advanced_learning",
-            "特別支援・学習につまずきのある子向け機能": "special_needs_support",
-            "創造性を育む内容": "creativity",
-            "STEM教育（理数系+技術）": "stem_education",
-            "プロジェクト型学習": "project_based"
+            "特別支援・学習サポート": "special_needs_support"
         }
         
         selected_features = st.multiselect(
-            "特に重視する機能を選択してください（最大5つ）:",
+            "重視する機能を選択してください（3つまで）:",
             options=list(feature_options.keys()),
             default=[],
-            max_selections=5,
-            key="features_multiselect"
+            max_selections=3,
+            key="features_multiselect_q6"
         )
         
+        # 選択した機能を保存
         if selected_features:
             st.session_state.answers['features'] = [feature_options[feature] for feature in selected_features]
-            
-            col1, col2, col3 = st.columns(3)
-            with col1:
-                if st.button("戻る"):
-                    st.session_state.question_stage -= 1
-                    st.rerun()
-            with col2:
-                if st.button("最初からやり直す"):
-                    # セッションをリセット
-                    st.session_state.question_stage = 1
-                    st.session_state.answers = {
-                        'grade': None,
-                        'subjects': [],
-                        'budget': 3000,
-                        'features': [],
-                        'purpose': None,
-                        'learning_style': None
-                    }
-                    st.rerun()
-            with col3:
-                if st.button("診断結果を見る", type="primary"):
-                    # 推奨事項を計算
-                    recommendations = get_recommendations(st.session_state.answers)
-                    st.session_state.recommendations = recommendations
-                    
-                    # 結果ページへ移動
-                    st.session_state.page = 'results'
-                    st.rerun()
         else:
-            if st.button("戻る"):
-                st.session_state.question_stage -= 1
-                st.rerun()
-    else:
-        st.error("エラーが発生しました。もう一度やり直してください。")
-        if st.button("最初からやり直す"):
-            st.session_state.question_stage = 1
-            st.session_state.answers = {
-                'grade': None,
-                'subjects': [],
-                'budget': 3000,
-                'features': [],
-                'purpose': None,
-                'learning_style': None
-            }
-            st.rerun()
+            st.session_state.answers['features'] = []
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("戻る", key="back_q6"):
+                st.session_state.question_stage = 5
+        with col2:
+            if st.button("診断結果を見る", type="primary", key="finish_q6"):
+                # 推薦アルゴリズムを実行
+                recommendations = get_recommendations(st.session_state.answers)
+                st.session_state.recommendations = recommendations
+                st.session_state.page = 'results'
