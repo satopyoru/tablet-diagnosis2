@@ -6,4 +6,3 @@ trafilatura==2.0.0
 numpy
 matplotlib
 scikit-learn
-
