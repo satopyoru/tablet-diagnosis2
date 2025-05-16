@@ -36,10 +36,8 @@ if 'answers' not in st.session_state:
 if 'recommendations' not in st.session_state:
     st.session_state.recommendations = []
 
+# ユーティリティ関数
 def reset_session():
-    # 元の値を保存
-    current_page = st.session_state.page
-    # 状態をリセット
     st.session_state.page = 'home'
     st.session_state.question_stage = 1
     st.session_state.answers = {
@@ -51,46 +49,31 @@ def reset_session():
         'learning_style': None
     }
     st.session_state.recommendations = []
-    # 元のページと違う場合のみrerunが必要
-    return current_page != 'home'
 
-# サイドバー 
-# キーを追加して各ボタンがユニークになるようにする
+# サイドバー
 with st.sidebar:
     st.title("メニュー")
     
-    if st.button("ホーム", key="home_button"):
-        need_rerun = reset_session()
-        if need_rerun:
-            st.rerun()
+    # 各ボタンにユニークなキーを割り当てる
+    if st.button("ホーム", key="sidebar_home"):
+        reset_session()
     
-    if st.button("診断スタート", key="start_button"):
-        old_page = st.session_state.page
+    if st.button("診断スタート", key="sidebar_start"):
         st.session_state.page = 'questionnaire'
         st.session_state.question_stage = 1
-        if old_page != 'questionnaire':
-            st.rerun()
     
-    if st.button("教材比較", key="compare_button"):
-        old_page = st.session_state.page
+    if st.button("教材比較", key="sidebar_compare"):
         st.session_state.page = 'comparison'
-        if old_page != 'comparison':
-            st.rerun()
     
-    if st.button("診断結果", key="results_button"):
+    if st.button("診断結果", key="sidebar_results"):
         if not st.session_state.recommendations:
             st.error("まずは診断を完了させてください")
         else:
-            old_page = st.session_state.page
             st.session_state.page = 'results'
-            if old_page != 'results':
-                st.rerun()
     
     st.divider()
-    if st.button("リセット", key="reset_button"):
-        need_rerun = reset_session()
-        if need_rerun:
-            st.rerun()
+    if st.button("リセット", key="sidebar_reset"):
+        reset_session()
 
 # メインコンテンツ
 if st.session_state.page == 'home':
@@ -114,14 +97,12 @@ if st.session_state.page == 'home':
     
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("診断を始める", use_container_width=True, type="primary"):
+        if st.button("診断を始める", use_container_width=True, type="primary", key="home_start"):
             st.session_state.page = 'questionnaire'
             st.session_state.question_stage = 1
-            st.rerun()
     with col2:
-        if st.button("教材を比較する", use_container_width=True):
+        if st.button("教材を比較する", use_container_width=True, key="home_compare"):
             st.session_state.page = 'comparison'
-            st.rerun()
 
 elif st.session_state.page == 'questionnaire':
     render_questionnaire()
@@ -131,10 +112,9 @@ elif st.session_state.page == 'results':
     
     if not st.session_state.recommendations:
         st.error("診断結果がありません。診断をやり直してください。")
-        if st.button("診断に戻る"):
+        if st.button("診断に戻る", key="results_back_to_quiz"):
             st.session_state.page = 'questionnaire'
             st.session_state.question_stage = 1
-            st.rerun()
     else:
         st.write("お子様の情報に基づく、おすすめのタブレット教材です")
         
@@ -272,13 +252,13 @@ elif st.session_state.page == 'results':
             "詳細に比較したい教材を選択してください",
             options=[p['id'] for p in tablet_data],
             default=st.session_state.recommendations[:2] if len(st.session_state.recommendations) >= 2 else st.session_state.recommendations,
-            format_func=lambda x: next((p['name'] for p in tablet_data if p['id'] == x), x)
+            format_func=lambda x: next((p['name'] for p in tablet_data if p['id'] == x), x),
+            key="results_compare_select"
         )
         
-        if st.button("選択した教材を比較する"):
+        if st.button("選択した教材を比較する", key="results_compare_button"):
             st.session_state['compare_ids'] = compare_ids
             st.session_state.page = 'comparison'
-            st.rerun()
         
         # 共有機能
         with st.expander("結果を共有"):
@@ -301,16 +281,15 @@ elif st.session_state.page == 'results':
             st.text_area("共有テキスト", share_text, height=200)
         
         # 診断のやり直し
-        if st.button("診断をやり直す"):
+        if st.button("診断をやり直す", key="results_restart"):
             reset_session()
             st.session_state.page = 'questionnaire'
-            st.rerun()
+            st.session_state.question_stage = 1
 
 elif st.session_state.page == 'comparison':
     render_comparison()
 
 else:
     st.error("ページが見つかりません")
-    if st.button("ホームに戻る"):
+    if st.button("ホームに戻る", key="error_home"):
         reset_session()
-

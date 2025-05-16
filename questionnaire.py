@@ -5,12 +5,12 @@ def render_questionnaire():
     st.title("📝 お子様に最適な教材を見つけるための診断")
     
     # プログレスバーの表示
-    if 'question_stage' not in st.session_state:
-        st.session_state.question_stage = 1
-    
     progress = st.session_state.question_stage / 6
     st.progress(progress)
     st.write(f"ステップ {st.session_state.question_stage}/6")
+    
+    # ボタンにユニークなキーを追加するためのプレフィックス
+    key_prefix = f"q{st.session_state.question_stage}_"
     
     # 質問1: 学年
     if st.session_state.question_stage == 1:
