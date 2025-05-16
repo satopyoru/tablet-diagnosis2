@@ -37,6 +37,9 @@ if 'recommendations' not in st.session_state:
     st.session_state.recommendations = []
 
 def reset_session():
+    # 元の値を保存
+    current_page = st.session_state.page
+    # 状態をリセット
     st.session_state.page = 'home'
     st.session_state.question_stage = 1
     st.session_state.answers = {
@@ -48,34 +51,46 @@ def reset_session():
         'learning_style': None
     }
     st.session_state.recommendations = []
-    st.rerun()
+    # 元のページと違う場合のみrerunが必要
+    return current_page != 'home'
 
-# サイドバー
+# サイドバー 
+# キーを追加して各ボタンがユニークになるようにする
 with st.sidebar:
     st.title("メニュー")
     
-    if st.button("ホーム"):
-        reset_session()
+    if st.button("ホーム", key="home_button"):
+        need_rerun = reset_session()
+        if need_rerun:
+            st.rerun()
     
-    if st.button("診断スタート"):
+    if st.button("診断スタート", key="start_button"):
+        old_page = st.session_state.page
         st.session_state.page = 'questionnaire'
         st.session_state.question_stage = 1
-        st.rerun()
+        if old_page != 'questionnaire':
+            st.rerun()
     
-    if st.button("教材比較"):
+    if st.button("教材比較", key="compare_button"):
+        old_page = st.session_state.page
         st.session_state.page = 'comparison'
-        st.rerun()
+        if old_page != 'comparison':
+            st.rerun()
     
-    if st.button("診断結果"):
+    if st.button("診断結果", key="results_button"):
         if not st.session_state.recommendations:
             st.error("まずは診断を完了させてください")
         else:
+            old_page = st.session_state.page
             st.session_state.page = 'results'
-            st.rerun()
+            if old_page != 'results':
+                st.rerun()
     
     st.divider()
-    if st.button("リセット"):
-        reset_session()
+    if st.button("リセット", key="reset_button"):
+        need_rerun = reset_session()
+        if need_rerun:
+            st.rerun()
 
 # メインコンテンツ
 if st.session_state.page == 'home':
