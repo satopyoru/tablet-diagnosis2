@@ -662,12 +662,11 @@ elif st.session_state.page == 'questionnaire':
         if grade:
             st.session_state.answers['grade'] = grade_mapping[grade]
             
-            # ワンクリックで自動的に次のステージに進む
-            st.session_state.question_stage = 2
-            # 表示のためだけのボタン（実際には機能しない）
+            # ボタンクリックで次のステージに進める
             col1, col2 = st.columns(2)
             with col2:
-                st.button("次へ", type="primary", key="next_q1_auto", disabled=True)
+                if st.button("次へ", type="primary", key="next_q1"):
+                    st.session_state.question_stage = 2
     
     # 質問2: 科目
     elif st.session_state.question_stage == 2:
@@ -695,15 +694,14 @@ elif st.session_state.page == 'questionnaire':
         if selected_subjects:
             st.session_state.answers['subjects'] = [subject_options[subject] for subject in selected_subjects]
             
-            # ワンクリックで自動的に次のステージに進む
-            st.session_state.question_stage = 3
-            
-            # 表示のためだけのボタン
+            # 選択後もボタンで操作できるように
             col1, col2 = st.columns(2)
             with col1:
-                st.button("戻る", key="back_q2_auto", disabled=True)
+                if st.button("戻る", key="back_q2"):
+                    st.session_state.question_stage = 1
             with col2:
-                st.button("次へ", type="primary", key="next_q2_auto", disabled=True)
+                if st.button("次へ", type="primary", key="next_q2"):
+                    st.session_state.question_stage = 3
         else:
             # 科目が選択されていない場合は、ボタンを表示
             col1, col2 = st.columns(2)
@@ -741,15 +739,14 @@ elif st.session_state.page == 'questionnaire':
         if purpose:
             st.session_state.answers['purpose'] = purpose_mapping[purpose]
             
-            # ワンクリックで自動的に次のステージに進む
-            st.session_state.question_stage = 4
-            
-            # 表示のためだけのボタン
+            # ボタンで操作できるように設定
             col1, col2 = st.columns(2)
             with col1:
-                st.button("戻る", key="back_q3_auto", disabled=True)
+                if st.button("戻る", key="back_q3"):
+                    st.session_state.question_stage = 2
             with col2:
-                st.button("次へ", type="primary", key="next_q3_auto", disabled=True)
+                if st.button("次へ", type="primary", key="next_q3"):
+                    st.session_state.question_stage = 4
         else:
             # 目的が選択されていない場合は、ボタンを表示
             col1, col2 = st.columns(2)
@@ -787,15 +784,14 @@ elif st.session_state.page == 'questionnaire':
         if style:
             st.session_state.answers['learning_style'] = style_mapping[style]
             
-            # ワンクリックで自動的に次のステージに進む
-            st.session_state.question_stage = 5
-            
-            # 表示のためだけのボタン
+            # クリック可能なボタンで操作
             col1, col2 = st.columns(2)
             with col1:
-                st.button("戻る", key="back_q4_auto", disabled=True)
+                if st.button("戻る", key="back_q4"):
+                    st.session_state.question_stage = 3
             with col2:
-                st.button("次へ", type="primary", key="next_q4_auto", disabled=True)
+                if st.button("次へ", type="primary", key="next_q4"):
+                    st.session_state.question_stage = 5
         else:
             # 学習スタイルが選択されていない場合は、ボタンを表示
             col1, col2 = st.columns(2)
@@ -818,15 +814,14 @@ elif st.session_state.page == 'questionnaire':
         
         st.session_state.answers['budget'] = budget
         
-        # ワンクリックで自動的に次のステージに進む
-        st.session_state.question_stage = 6
-        
-        # 表示のためだけのボタン
+        # 通常のボタンで操作
         col1, col2 = st.columns(2)
         with col1:
-            st.button("戻る", key="back_q5_auto", disabled=True)
+            if st.button("戻る", key="back_q5"):
+                st.session_state.question_stage = 4
         with col2:
-            st.button("次へ", type="primary", key="next_q5_auto", disabled=True)
+            if st.button("次へ", type="primary", key="next_q5"):
+                st.session_state.question_stage = 6
     
     # 質問6: 重視する機能
     elif st.session_state.question_stage == 6:
@@ -861,29 +856,17 @@ elif st.session_state.page == 'questionnaire':
         else:
             st.session_state.answers['features'] = []
             
-        # 自動的に診断結果に進むボタン（選択があった場合）
-        if selected_features:
-            # 推薦アルゴリズムを実行
-            recommendations = get_optimized_recommendations(st.session_state.answers)
-            st.session_state.recommendations = recommendations
-            st.session_state.page = 'results'
-            
-        # 表示のためだけのボタン
+        # 通常のボタン操作で診断結果に進む
         col1, col2 = st.columns(2)
         with col1:
             if st.button("戻る", key="back_q6"):
                 st.session_state.question_stage = 5
         with col2:
-            # 選択がない場合は機能する実際のボタン
-            if not selected_features:
-                if st.button("診断結果を見る", type="primary", key="finish_q6"):
-                    # 推薦アルゴリズムを実行
-                    recommendations = get_optimized_recommendations(st.session_state.answers)
-                    st.session_state.recommendations = recommendations
-                    st.session_state.page = 'results'
-            else:
-                # 選択がある場合は非活性のボタン（表示だけ）
-                st.button("診断結果を見る", type="primary", key="finish_q6_auto", disabled=True)
+            if st.button("診断結果を見る", type="primary", key="finish_q6"):
+                # 推薦アルゴリズムを実行
+                recommendations = get_optimized_recommendations(st.session_state.answers)
+                st.session_state.recommendations = recommendations
+                st.session_state.page = 'results'
 
 elif st.session_state.page == 'results':
     st.title("🎯 診断結果")
