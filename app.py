@@ -202,11 +202,11 @@ tablet_data = [
     {
         "id": "marugland",
         "name": "まるぐランド for HOME",
-        "monthly_fee": 1078,  # 最安値
+        "monthly_fee": 19800,  # 個別指導（月2回）の場合
         "initial_fee": 0,
-        "description": "特別支援教育の知見を活かした、つまずきのある子どもにも優しい学習教材。",
+        "description": "特別支援教育の知見を活かした、子どもの特性に合った家庭教師のような個別指導で学習の土台を作ります。",
         "url": "https://jinzaikachi.com/marug-campaign/",
-        "tags": ["特別支援", "基礎力", "算数・国語"]
+        "tags": ["特別支援", "個別指導", "算数・国語"]
     },
     {
         "id": "surara",
