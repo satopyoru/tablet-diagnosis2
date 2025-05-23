@@ -115,7 +115,8 @@ tablet_data = [
         "monthly_fee": 3250,  # 小1～2年生の場合（12ヶ月一括払い）
         "initial_fee": 0,
         "description": "ベネッセの「進研ゼミ」のタブレット版。基礎力養成を目的とした学習コンテンツと専用タブレットを提供。",
-        "url": "https://jinzaikachi.com/challenge-campaign/"
+        "url": "https://jinzaikachi.com/challenge-campaign/",
+        "tags": ["基礎力", "動画授業", "専用タブレット", "紙教材併用"]
     },
     {
         "id": "smile_zemi",
@@ -123,7 +124,8 @@ tablet_data = [
         "monthly_fee": 3278,  # 小1～2年生の場合（12ヶ月一括払い）
         "initial_fee": 0,
         "description": "幼児から中学生まで対応した総合的なタブレット教材。AIが子どもの理解度に合わせて問題を出題。",
-        "url": "https://jinzaikachi.com/smilezemi-campaign/"
+        "url": "https://jinzaikachi.com/smilezemi-campaign/",
+        "tags": ["AI適応学習", "全科目対応", "専用タブレット"]
     },
     {
         "id": "z_kai_tablet",
@@ -131,7 +133,8 @@ tablet_data = [
         "monthly_fee": 3570,  # 小1年生の場合（12ヶ月一括払い）
         "initial_fee": 0,
         "description": "思考力・表現力を重視した難関校受験にも対応する高品質な学習教材。",
-        "url": "https://jinzaikachi.com/z-tablet/"
+        "url": "https://jinzaikachi.com/z-tablet/",
+        "tags": ["思考力", "受験対策", "先取り学習"]
     },
     {
         "id": "risu_kids",
@@ -139,7 +142,8 @@ tablet_data = [
         "monthly_fee": 2948,  # 基本料金＋利用料が発生（進度に応じて変動）
         "initial_fee": 0,
         "description": "AIが子どもの理解度を精密に分析し、一人ひとりに最適な問題を提供する算数特化型教材。",
-        "url": "https://jinzaikachi.com/risu-math/"
+        "url": "https://jinzaikachi.com/risu-math/",
+        "tags": ["算数特化", "AI適応学習", "個別学習"]
     },
     {
         "id": "study_suppli",
@@ -147,7 +151,98 @@ tablet_data = [
         "monthly_fee": 1815,  # 学年が上がっても定額
         "initial_fee": 0,
         "description": "有名講師による質の高い授業動画と演習問題を低価格で利用できるオンライン学習サービス。",
-        "url": "https://jinzaikachi.com/study-supple/"
+        "url": "https://jinzaikachi.com/study-supple/",
+        "tags": ["コスパ", "動画授業", "テスト対策"]
+    },
+    {
+        "id": "toshin_online",
+        "name": "東進オンライン学校（小学部）",
+        "monthly_fee": 2178,  # 小1～2年生の場合
+        "initial_fee": 0,
+        "description": "難関中学受験を目指す小学生のための本格的なオンライン学習塾。一流講師の授業と体系的な演習。",
+        "url": "https://jinzaikachi.com/toushin-online-syougakubu/",
+        "tags": ["受験対策", "動画授業", "演習重視"]
+    },
+    {
+        "id": "dekitasu",
+        "name": "デキタス",
+        "monthly_fee": 3960,  # 学年が上がっても定額
+        "initial_fee": 0,
+        "description": "ゲーム要素を取り入れた楽しい学習体験と、AIによる個別最適化学習を組み合わせたタブレット教材。",
+        "url": "https://jinzaikachi.com/dekitasu/",
+        "tags": ["ゲーミフィケーション", "AI適応学習", "学習管理"]
+    },
+    {
+        "id": "poppy",
+        "name": "小学ポピー",
+        "monthly_fee": 2980,  # 小1～2年生の場合
+        "initial_fee": 0,
+        "description": "60年以上の実績を持つ通信教育で、基本はプリント学習ですが、タブレット学習も組み合わせることができます。",
+        "url": "https://jinzaikachi.com/popi-campaign/",
+        "tags": ["コスパ", "紙教材併用", "基礎力"]
+    },
+    {
+        "id": "substa",
+        "name": "サブスタ",
+        "monthly_fee": 980,  # 最安値
+        "initial_fee": 0,
+        "description": "月額980円から利用できる低価格のオンライン学習サービス。学校の授業の復習や定期テスト対策に最適。",
+        "url": "https://jinzaikachi.com/sabusuta/",
+        "tags": ["低価格", "動画授業", "テスト対策"]
+    },
+    {
+        "id": "tenjin",
+        "name": "天神",
+        "monthly_fee": 11000,  # 小学生
+        "initial_fee": 0,
+        "description": "学校の授業についていけない子どもや、苦手科目の克服を目的とした小中学生向けタブレット教材。",
+        "url": "https://jinzaikachi.com/tenjin/",
+        "tags": ["苦手克服", "基礎力", "個別学習"]
+    },
+    {
+        "id": "marugland",
+        "name": "まるぐランド for HOME",
+        "monthly_fee": 1078,  # 最安値
+        "initial_fee": 0,
+        "description": "特別支援教育の知見を活かした、つまずきのある子どもにも優しい学習教材。",
+        "url": "https://jinzaikachi.com/marug-campaign/",
+        "tags": ["特別支援", "基礎力", "算数・国語"]
+    },
+    {
+        "id": "surara",
+        "name": "すらら",
+        "monthly_fee": 8228,  # 月額
+        "initial_fee": 0,
+        "description": "学校でも多く導入されている、つまずき診断と個別最適化学習が特徴のタブレット教材。",
+        "url": "https://jinzaikachi.com/surara/",
+        "tags": ["つまずき診断", "個別学習", "アニメーション授業"]
+    },
+    {
+        "id": "logic_labo",
+        "name": "ロジックラボ",
+        "monthly_fee": 3480,  # 月額
+        "initial_fee": 0,
+        "description": "数理能力と論理的思考力を楽しく鍛える教材。将来のAI時代に必要な思考力の基礎を育みます。",
+        "url": "https://jinzaikachi.com/rogiqlabo/",
+        "tags": ["思考力", "プログラミング", "数理能力"]
+    },
+    {
+        "id": "wonder_box",
+        "name": "ワンダーボックス",
+        "monthly_fee": 3700,  # 月額
+        "initial_fee": 0,
+        "description": "毎月届く実験キットとタブレット学習を組み合わせた、創造力と思考力を育むSTEAM教育教材。",
+        "url": "https://jinzaikachi.com/wonderbox/",
+        "tags": ["STEAM教育", "創造力", "体験型学習"]
+    },
+    {
+        "id": "groovy_lab",
+        "name": "グルービーラボ イン ア ボックス",
+        "monthly_fee": 3480,  # 月額
+        "initial_fee": 0,
+        "description": "米国発の科学教材で、毎月テーマの異なる実験キットとタブレット解説で、楽しく科学を学べます。",
+        "url": "https://jinzaikachi.com/groovy/",
+        "tags": ["科学実験", "バイリンガル", "STEAM教育"]
     }
 ]
 
@@ -379,17 +474,70 @@ elif st.session_state.page == 'questionnaire':
         
         # 結果表示への遷移関数
         def finish_questionnaire():
-            # 簡易レコメンデーション（実際のプロジェクトではもっと複雑なロジック）
+            # 改良された推薦アルゴリズム
             recommendations = []
+            scores = {}
+            
+            # 予算フィルター
             budget = st.session_state.answers.get('budget', 3000)
             
-            # 予算内の商品をフィルタリング
+            # 各商品にスコアを付ける
             for product in tablet_data:
+                # 基本スコア
+                score = 0
+                
+                # 予算内かどうか（重要度が高い）
                 if product['monthly_fee'] <= budget:
-                    recommendations.append(product['id'])
+                    score += 50
+                    # 予算の70-90%の範囲内ならボーナス
+                    if product['monthly_fee'] >= budget * 0.7:
+                        score += 10
+                else:
+                    # 予算オーバーは大幅減点
+                    score -= 100
+                
+                # 学年適合（もしあれば）
+                grade = st.session_state.answers.get('grade')
+                if grade and 'grade_range' in product and grade in product.get('grade_range', []):
+                    score += 15
+                
+                # 目的マッチング
+                purpose = st.session_state.answers.get('purpose')
+                if purpose == 'exam_preparation' and '受験対策' in product.get('tags', []):
+                    score += 20
+                elif purpose == 'thinking_creativity' and ('思考力' in product.get('tags', []) or '創造力' in product.get('tags', [])):
+                    score += 20
+                elif purpose == 'catch_up' and '基礎力' in product.get('tags', []):
+                    score += 20
+                elif purpose == 'weakness_improvement' and ('苦手克服' in product.get('tags', []) or 'つまずき診断' in product.get('tags', [])):
+                    score += 20
+                
+                # 学習スタイルマッチング
+                style = st.session_state.answers.get('learning_style')
+                if style == 'video_learning' and '動画授業' in product.get('tags', []):
+                    score += 20
+                elif style == 'gamified_learning' and 'ゲーミフィケーション' in product.get('tags', []):
+                    score += 20
+                elif style == 'ai_adaptive' and 'AI適応学習' in product.get('tags', []):
+                    score += 20
+                elif style == 'experiential_learning' and ('体験型学習' in product.get('tags', []) or '科学実験' in product.get('tags', [])):
+                    score += 20
+                
+                # ポイントを記録
+                scores[product['id']] = score
             
-            # 結果を保存
-            st.session_state.recommendations = recommendations[:3]
+            # スコアでソート（予算内のものだけを選択）
+            sorted_products = sorted(
+                [(pid, score) for pid, score in scores.items() if score > 0], 
+                key=lambda x: x[1], 
+                reverse=True
+            )
+            
+            # IDだけのリストに変換
+            recommendations = [pid for pid, _ in sorted_products]
+            
+            # 結果を保存（上位5つまで）
+            st.session_state.recommendations = recommendations[:5]
             st.session_state.page = 'results'
         
         # ボタン配置
