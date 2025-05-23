@@ -13,8 +13,8 @@ tablet_basic_data = [
     {
         "id": "challenge_touch",
         "name": "チャレンジタッチ",
-        "monthly_fee": 3250,
-        "initial_fee": 0,
+        "monthly_fee": 3250,  # 小1～2年生の場合（12ヶ月一括払い）
+        "initial_fee": 0,  # 6ヶ月未満退会時はタブレット代8,300円が必要
         "grade_range": ["kindergarten", "lower_elementary", "upper_elementary"],
         "subjects": ["japanese", "math", "english", "science", "social", "programming"],
         "strengths": [
@@ -41,8 +41,8 @@ tablet_basic_data = [
     {
         "id": "smile_zemi",
         "name": "スマイルゼミ",
-        "monthly_fee": 3278,
-        "initial_fee": 11000,
+        "monthly_fee": 3278,  # 小1～2年生の場合（12ヶ月一括払い）
+        "initial_fee": 0,  # 6ヶ月未満退会時はタブレット代32,802円が必要
         "grade_range": ["kindergarten", "lower_elementary", "upper_elementary"],
         "subjects": ["japanese", "math", "english", "science", "social", "programming"],
         "strengths": [
@@ -69,7 +69,7 @@ tablet_basic_data = [
     {
         "id": "z_kai_tablet",
         "name": "Z会タブレットコース",
-        "monthly_fee": 3570,
+        "monthly_fee": 3570,  # 小1年生の場合（12ヶ月一括払い）
         "initial_fee": 0,
         "grade_range": ["lower_elementary", "upper_elementary"],
         "subjects": ["japanese", "math", "english", "science", "social", "programming", "thinking"],
@@ -97,7 +97,7 @@ tablet_basic_data = [
     {
         "id": "risu_kids",
         "name": "RISU算数",
-        "monthly_fee": 2980,
+        "monthly_fee": 2948,  # 基本料金＋利用料が発生（進度に応じて変動）
         "initial_fee": 0,
         "grade_range": ["kindergarten", "lower_elementary", "upper_elementary"],
         "subjects": ["math"],
@@ -125,7 +125,7 @@ tablet_basic_data = [
     {
         "id": "study_suppli",
         "name": "スタディサプリ小学講座",
-        "monthly_fee": 2178,
+        "monthly_fee": 1815,  # 学年が上がっても定額
         "initial_fee": 0,
         "grade_range": ["lower_elementary", "upper_elementary"],
         "subjects": ["japanese", "math", "english", "science", "social"],
@@ -153,7 +153,7 @@ tablet_basic_data = [
     {
         "id": "toshin_online",
         "name": "東進オンライン学校（小学部）",
-        "monthly_fee": 5500,
+        "monthly_fee": 2178,  # 小1～2年生の場合
         "initial_fee": 0,
         "grade_range": ["upper_elementary"],
         "subjects": ["japanese", "math", "english", "science", "social"],
@@ -181,7 +181,7 @@ tablet_basic_data = [
     {
         "id": "dekitasu",
         "name": "デキタス",
-        "monthly_fee": 2178,
+        "monthly_fee": 3960,  # 学年が上がっても定額
         "initial_fee": 0,
         "grade_range": ["lower_elementary", "upper_elementary"],
         "subjects": ["japanese", "math", "english", "science", "social"],
@@ -209,7 +209,7 @@ tablet_basic_data = [
     {
         "id": "poppy",
         "name": "小学ポピー",
-        "monthly_fee": 1400,
+        "monthly_fee": 2980,  # 小1～2年生の場合
         "initial_fee": 0,
         "grade_range": ["kindergarten", "lower_elementary", "upper_elementary"],
         "subjects": ["japanese", "math", "english", "science", "social"],
